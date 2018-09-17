@@ -37,6 +37,7 @@ This is the library I made for the game and other experiments that use noughts a
 
 This project uses rand 0.5 for generating the random numbers used in the artificial intelligence.
 
+Rayon was used in this project for parallel code.
 
 ## **Warning**
 
