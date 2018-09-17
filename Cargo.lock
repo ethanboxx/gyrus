@@ -2,6 +2,7 @@
 name = "ai-graph"
 version = "0.0.5"
 dependencies = [
+ "noughts_and_crosses_lib 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "rand 0.5.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "rayon 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -106,32 +107,9 @@ version = "0.1.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
-name = "noughts-and-crosses-ai-test"
-version = "0.1.0"
-dependencies = [
- "ai-graph 0.0.5",
- "noughts_and_crosses_lib 0.1.0",
-]
-
-[[package]]
-name = "noughts-and-crosses-game"
-version = "0.1.0"
-dependencies = [
- "ai-graph 0.0.5",
- "noughts_and_crosses_lib 0.1.0",
-]
-
-[[package]]
-name = "noughts-and-crosses-random-train"
-version = "0.1.0"
-dependencies = [
- "ai-graph 0.0.5",
- "noughts_and_crosses_lib 0.1.0",
-]
-
-[[package]]
 name = "noughts_and_crosses_lib"
-version = "0.1.0"
+version = "0.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "rand 0.5.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -226,6 +204,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum libc 0.2.43 (registry+https://github.com/rust-lang/crates.io-index)" = "76e3a3ef172f1a0b9a9ff0dd1491ae5e6c948b94479a3021819ba7d860c8645d"
 "checksum memoffset 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "0f9dc261e2b62d7a622bf416ea3c5245cdd5d9a7fcc428c0d06804dfce1775b3"
 "checksum nodrop 0.1.12 (registry+https://github.com/rust-lang/crates.io-index)" = "9a2228dca57108069a5262f2ed8bd2e82496d2e074a06d1ccc7ce1687b6ae0a2"
+"checksum noughts_and_crosses_lib 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "588bae0bfb6c0f41283a888120af531b2c62fac3a67421fff2a1673de8551a52"
 "checksum num_cpus 1.8.0 (registry+https://github.com/rust-lang/crates.io-index)" = "c51a3322e4bca9d212ad9a158a02abc6934d005490c054a2778df73a70aa0a30"
 "checksum rand 0.5.5 (registry+https://github.com/rust-lang/crates.io-index)" = "e464cd887e869cddcae8792a4ee31d23c7edd516700695608f5b98c67ee0131c"
 "checksum rand_core 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "edecf0f94da5551fc9b492093e30b041a891657db7940ee221f9d2f66e82eef2"

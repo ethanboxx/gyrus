@@ -2,7 +2,7 @@
 image: "rust:latest"
 
 stages:
-  - build
+  - check
   - test
   - deploy
   - publish
@@ -14,7 +14,7 @@ cache:
     - ${CI_PROJECT_DIR}/target/
 
 clean-code:
-  stage: build
+  stage: check
   script:
     - rustup default nightly
     - rustup update
@@ -22,40 +22,14 @@ clean-code:
     - cargo fmt --all -- --check
   allow_failure: true
 
-build-noughts-and-crosses-game:
-  stage: build
-  script:
-    - rustup default nightly
-    - rustup update
-    - (cd noughts-and-crosses-game && cargo build)
 
-build-noughts-and-crosses-lib:
-  stage: build
+check-ai-graph:
+  stage: check
   script:
     - rustup default nightly
     - rustup update
-    - (cd noughts-and-crosses-lib && cargo build)
+    - cargo check
 
-build-ai-graph:
-  stage: build
-  script:
-    - rustup default nightly
-    - rustup update
-    - (cd ai-graph && cargo build)
-
-build-noughts-and-crosses-ai-test:
-  stage: build
-  script:
-    - rustup default nightly
-    - rustup update
-    - (cd noughts-and-crosses-ai-test && cargo build)
-
-build-noughts-and-crosses-random-train:
-  stage: build
-  script:
-    - rustup default nightly
-    - rustup update
-    - (cd noughts-and-crosses-random-train && cargo build)
 
 unittests:
   stage: test
@@ -137,7 +111,7 @@ docs:
     - apt-get update
     - rustup default nightly
     - rustup update
-    - (cd ai-graph && cargo doc --no-deps)
+    - cargo doc --no-deps
     - rm -r -f docs
     - mkdir docs
     - cp -R target/doc docs
@@ -159,7 +133,6 @@ cratesio:
     - rustup default nightly
     - rustup update
     - cargo login $CARGO_LOGIN
-    - cd ai-graph
     - cargo package
     - cargo publish
   when: on_success
