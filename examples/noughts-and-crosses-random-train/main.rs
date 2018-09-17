@@ -1,6 +1,9 @@
 #![feature(tool_lints)]
 #![warn(clippy::pedantic)]
 #![allow(clippy::single_match_else)]
+
+//To run example `cargo run --example noughts-and-crosses-random-train --release`
+
 extern crate ai_graph;
 extern crate noughts_and_crosses_lib;
 use ai_graph::Gene;
@@ -15,7 +18,7 @@ struct GeneStorage {
 
 fn main() {
     let mut scores = Vec::new();
-    for _x in 0..1000 {
+    for _x in 0..500 {
         let gene_tested = Gene::new_random_gene();
         let mut score_values = Vec::new();
         for _x in 0..10000 {
@@ -79,5 +82,5 @@ fn main() {
     score_val_temp.sort_by(|a, b| a.partial_cmp(b).unwrap_or(Equal));
     // println!("{:#?}", score_val_temp);
     println!("Big value{:#?}", score_val_temp[score_val_temp.len() - 1]);
-    println!("Hello, world!");
+    dont_disappear::enter_to_continue();
 }
