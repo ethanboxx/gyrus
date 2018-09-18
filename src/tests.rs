@@ -1,6 +1,7 @@
 use crate::mutate;
 #[cfg(test)]
 use crate::Gene;
+use rand::Rng;
 #[test]
 fn random_gene_is_valid() {
     let test_gene = Gene::new_random_gene();
@@ -29,7 +30,7 @@ fn random_breed_is_valid() {
 fn merge_is_valid() {
     let mut test_gene = Gene::new_random_gene();
     println!("test_gene{:#?}", test_gene);
-    test_gene = test_gene.mutate(&mutate::Type::Strong, &10);
+    test_gene = test_gene.mutate(&mutate::Type::Strong, 10);
     println!("test_gene mutated mut{:#?}", test_gene);
     if !test_gene.validate() {
         panic!("Gene is not valid")

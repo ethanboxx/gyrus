@@ -54,8 +54,67 @@ impl MutationNode {
     }
 }
 
+// TODO Not finnished GO BACK TO THIS
 impl MutationLine {
-    fn line_mutate(self, _mutation_type: &Type, _mutation_level: i8) -> Self {
-        MutationLine::Multiply(10)
+    fn line_mutate(self, mutation_type: &Type, mutation_level: i8) -> Self {
+        match mutation_type {
+            Type::Strong => {
+                let invert_chance: i8 =
+                    rand::thread_rng().gen_range(i8::min_value(), i8::max_value());
+                if mutation_level > invert_chance {
+                    match self {
+                        MutationLine::Pass => MutationLine::Pass,
+                        MutationLine::Reset => MutationLine::Reset,
+                        MutationLine::Multiply(value) => MutationLine::Pass,
+                        MutationLine::Divide(value) => MutationLine::Pass,
+                        MutationLine::Add(value) => MutationLine::Pass,
+                    }
+                } else {
+                    match self {
+                        MutationLine::Pass => MutationLine::Pass,
+                        MutationLine::Reset => MutationLine::Reset,
+                        MutationLine::Multiply(value) => MutationLine::Pass,
+                        MutationLine::Divide(value) => MutationLine::Pass,
+                        MutationLine::Add(value) => MutationLine::Pass,
+                    }
+                }
+            }
+            Type::OnlyValues => {
+                let invert_chance: i8 =
+                    rand::thread_rng().gen_range(i8::min_value(), i8::max_value());
+                if mutation_level > invert_chance {
+                    match self {
+                        MutationLine::Pass => MutationLine::Pass,
+                        MutationLine::Reset => MutationLine::Reset,
+                        MutationLine::Multiply(value) => {
+                            MutationLine::Multiply(rand_plus_or_minus(value, mutation_level))
+                        }
+                        MutationLine::Divide(value) => {
+                            MutationLine::Divide(rand_plus_or_minus(value, mutation_level))
+                        }
+                        MutationLine::Add(value) => {
+                            MutationLine::Add(rand_plus_or_minus(value, mutation_level))
+                        }
+                    }
+                } else {
+                    self
+                }
+            }
+        }
+    }
+}
+
+// catch panics
+fn rand_plus_or_minus(value_one: i8, value_two: i8) -> i8 {
+    if rand::thread_rng().gen_bool(0.5) {
+        match value_one.checked_add(value_two) {
+            Some(v) => v,
+            None => value_one,
+        }
+    } else {
+        match value_one.checked_sub(value_two) {
+            Some(v) => v,
+            None => value_one,
+        }
     }
 }
