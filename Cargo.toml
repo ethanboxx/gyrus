@@ -15,5 +15,5 @@ rand = "0.5"
 rayon = "1.0.2"
 
 [dev-dependencies]
-noughts_and_crosses_lib = "1"
+noughts_and_crosses_lib = "0"
 dont_disappear = "1"
