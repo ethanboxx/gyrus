@@ -5,10 +5,12 @@
 #![warn(clippy::pedantic)]
 //! Ai Graph is a new tool for creating machine learning that runs blazingly fast when learning has finnished.
 mod breed;
+mod mutate;
 mod new_genes;
 mod output;
 mod tests;
 mod validate;
+
 #[derive(Clone, Copy, Debug)]
 enum MutationLine {
     Pass,
