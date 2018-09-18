@@ -1,5 +1,6 @@
 use crate::Gene;
-
+use crate::MutationLine;
+use crate::MutationNode;
 enum mutate_type {
     // Changes all kinds of values
     Strong,
@@ -29,5 +30,17 @@ impl Gene {
             }
         }
         new_values.clone()
+    }
+}
+
+impl MutationNode {
+    fn node_mutate(&self) -> Self {
+        MutationNode::Multiply
+    }
+}
+
+impl MutationLine {
+    fn line_mutate(&self) -> Self {
+        MutationLine::Multiply(10)
     }
 }
