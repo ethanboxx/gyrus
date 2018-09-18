@@ -10,6 +10,7 @@ mod new_genes;
 mod output;
 mod tests;
 mod validate;
+pub use self::mutate::Type;
 
 #[derive(Clone, Copy, Debug)]
 enum MutationLine {

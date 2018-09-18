@@ -1,7 +1,7 @@
 use crate::Gene;
 use crate::MutationLine;
 use crate::MutationNode;
-enum mutate_type {
+pub enum Type {
     // Changes all kinds of values
     Strong,
     // Only cange values
@@ -9,7 +9,7 @@ enum mutate_type {
 }
 
 impl Gene {
-    pub fn mutate(&self) -> Self {
+    pub fn mutate(&self, _mutation_type: Type, _mutation_level: i8) -> Self {
         let mut new_values = self.clone();
         if !self.validate() {
             panic!("Genes not valid. Can't mutate.");
