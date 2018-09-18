@@ -24,8 +24,11 @@ impl Gene {
         for (block_index, block) in self.line_dna.iter().enumerate() {
             for (node_point_index, node_point) in block.iter().enumerate() {
                 for (line_index, line) in node_point.iter().enumerate() {
-                    new_values.line_dna[block_index][node_point_index][line_index] = line
-                        .line_merge(second_gene.line_dna[block_index][node_point_index][line_index])
+                    new_values.line_dna[block_index][node_point_index][line_index] =
+                        MutationLine::line_merge(
+                            *line,
+                            second_gene.line_dna[block_index][node_point_index][line_index],
+                        )
                 }
             }
         }
@@ -42,9 +45,9 @@ impl MutationNode {
 }
 
 impl MutationLine {
-    fn line_merge(self, second_line: Self) -> Self {
+    fn line_merge(first_line: Self, second_line: Self) -> Self {
         let rng = rand::thread_rng().gen_range(0, 2);
-        let node_types = [self, second_line];
+        let node_types = [first_line, second_line];
         match node_types[rng] {
             MutationLine::Pass => MutationLine::Pass,
             MutationLine::Reset => MutationLine::Reset,
