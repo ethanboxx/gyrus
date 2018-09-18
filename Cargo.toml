@@ -1,8 +1,9 @@
 [package]
 name = "ai-graph"
-version = "0.0.5"
+version = "0.0.6"
 authors = ["Ethan Brierley <ethanboxx@gmail.com>"]
 license = "MIT/Apache-2.0"
+readme = "README.md"
 repository = "https://gitlab.com/efunb/noughts-and-crosses-ai-collection"
 description = """
 Ai Graph is a new tool for creating machine learning that runs blazingly fast when learning has finnished.
@@ -14,5 +15,5 @@ rand = "0.5"
 rayon = "1.0.2"
 
 [dev-dependencies]
-noughts_and_crosses_lib = "*"
+noughts_and_crosses_lib = "1"
 dont_disappear = "1"

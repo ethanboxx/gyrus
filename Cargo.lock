@@ -1,6 +1,6 @@
 [[package]]
 name = "ai-graph"
-version = "0.0.5"
+version = "0.0.6"
 dependencies = [
  "dont_disappear 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "noughts_and_crosses_lib 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
