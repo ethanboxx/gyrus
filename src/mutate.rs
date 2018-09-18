@@ -1,6 +1,7 @@
 use crate::Gene;
 use crate::MutationLine;
 use crate::MutationNode;
+use rand::Rng;
 pub enum Type {
     // Changes all kinds of values
     Strong,
@@ -35,8 +36,25 @@ impl Gene {
 }
 
 impl MutationNode {
-    fn node_mutate(&self, _mutation_type: &Type, _mutation_level: &i8) -> Self {
-        MutationNode::Multiply
+    fn node_mutate(self, mutation_type: &Type, mutation_level: &i8) -> Self {
+        match mutation_type {
+            Type::Strong => {
+                let invert_chance: i8 =
+                    rand::thread_rng().gen_range(i8::min_value(), i8::max_value());
+                if mutation_level > &invert_chance {
+                    let mut rng = rand::thread_rng();
+                    let node_types = [
+                        MutationNode::Multiply,
+                        MutationNode::Divide,
+                        MutationNode::Add,
+                    ];
+                    *rng.choose(&node_types).unwrap()
+                } else {
+                    self
+                }
+            }
+            Type::OnlyValues => self,
+        }
     }
 }
 
