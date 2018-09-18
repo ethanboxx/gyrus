@@ -7,7 +7,7 @@
 
 ## Downloads
 
-[Docs](https://gitlab.com/efunb/noughts-and-crosses-ai-collection/-/jobs/artifacts/dev/download?job=docs)
+[Docs](https://gitlab.com/efunb/ai-graph/-/jobs/artifacts/dev/download?job=docs)
 
 ## Dependencies
 
