@@ -7,5 +7,5 @@ struct mutate_type {
 }
 
 impl Gene {
-    pub fn breed(&self, second_gene: &Self) -> Self {}
+    pub fn mutate(&self, second_gene: &Self) -> Self {}
 }
