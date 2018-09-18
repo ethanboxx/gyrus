@@ -14,8 +14,10 @@ impl Gene {
         // Merge nodes.
         for (node_line_index, node_line) in self.node_dna.iter().enumerate() {
             for (node_index, node) in node_line.iter().enumerate() {
-                new_values.node_dna[node_line_index][node_index] =
-                    node.node_merge(second_gene.node_dna[node_line_index][node_index]);
+                new_values.node_dna[node_line_index][node_index] = MutationNode::node_merge(
+                    *node,
+                    second_gene.node_dna[node_line_index][node_index],
+                );
             }
         }
         // Merge lines.
@@ -32,9 +34,9 @@ impl Gene {
 }
 
 impl MutationNode {
-    fn node_merge(self, second_node: Self) -> Self {
+    fn node_merge(first_node: Self, second_node: Self) -> Self {
         let mut rng = rand::thread_rng();
-        let node_types = [self, second_node];
+        let node_types = [first_node, second_node];
         *rng.choose(&node_types).unwrap()
     }
 }
