@@ -12,7 +12,7 @@ mod tests;
 mod validate;
 pub use self::mutate::Type;
 
-const node_types: [MutationNode; 3] = [
+const NODE_TYPES: [MutationNode; 3] = [
     MutationNode::Multiply,
     MutationNode::Divide,
     MutationNode::Add,

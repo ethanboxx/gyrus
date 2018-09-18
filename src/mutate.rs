@@ -1,7 +1,7 @@
-use crate::node_types;
 use crate::Gene;
 use crate::MutationLine;
 use crate::MutationNode;
+use crate::NODE_TYPES;
 use rand::Rng;
 pub enum Type {
     // Changes all kinds of values
@@ -44,7 +44,7 @@ impl MutationNode {
                     rand::thread_rng().gen_range(i8::min_value(), i8::max_value());
                 if mutation_level > &invert_chance {
                     let mut rng = rand::thread_rng();
-                    *rng.choose(&node_types).unwrap()
+                    *rng.choose(&NODE_TYPES).unwrap()
                 } else {
                     self
                 }
