@@ -11,7 +11,7 @@ pub enum Type {
 }
 
 impl Gene {
-    pub fn mutate(&self, mutation_type: &Type, mutation_level: &i8) -> Self {
+    pub fn mutate(&self, mutation_type: &Type, mutation_level: i8) -> Self {
         let mut new_values = self.clone();
         if !self.validate() {
             panic!("Genes not valid. Can't mutate.");
@@ -37,12 +37,12 @@ impl Gene {
 }
 
 impl MutationNode {
-    fn node_mutate(self, mutation_type: &Type, mutation_level: &i8) -> Self {
+    fn node_mutate(self, mutation_type: &Type, mutation_level: i8) -> Self {
         match mutation_type {
             Type::Strong => {
                 let invert_chance: i8 =
                     rand::thread_rng().gen_range(i8::min_value(), i8::max_value());
-                if mutation_level > &invert_chance {
+                if mutation_level > invert_chance {
                     let mut rng = rand::thread_rng();
                     *rng.choose(&NODE_TYPES).unwrap()
                 } else {
@@ -55,7 +55,7 @@ impl MutationNode {
 }
 
 impl MutationLine {
-    fn line_mutate(&self, _mutation_type: &Type, _mutation_level: &i8) -> Self {
+    fn line_mutate(self, _mutation_type: &Type, _mutation_level: i8) -> Self {
         MutationLine::Multiply(10)
     }
 }
