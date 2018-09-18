@@ -9,7 +9,7 @@ pub enum Type {
 }
 
 impl Gene {
-    pub fn mutate(&self, _mutation_type: Type, _mutation_level: i8) -> Self {
+    pub fn mutate(&self, mutation_type: &Type, mutation_level: &i8) -> Self {
         let mut new_values = self.clone();
         if !self.validate() {
             panic!("Genes not valid. Can't mutate.");
@@ -17,7 +17,8 @@ impl Gene {
         // Mutate nodes.
         for (node_line_index, node_line) in self.node_dna.iter().enumerate() {
             for (node_index, node) in node_line.iter().enumerate() {
-                new_values.node_dna[node_line_index][node_index] = node.node_mutate();
+                new_values.node_dna[node_line_index][node_index] =
+                    node.node_mutate(mutation_type, mutation_level);
             }
         }
         // Mutate lines.
@@ -25,7 +26,7 @@ impl Gene {
             for (node_point_index, node_point) in block.iter().enumerate() {
                 for (line_index, line) in node_point.iter().enumerate() {
                     new_values.line_dna[block_index][node_point_index][line_index] =
-                        line.line_mutate()
+                        line.line_mutate(mutation_type, mutation_level)
                 }
             }
         }
@@ -34,13 +35,13 @@ impl Gene {
 }
 
 impl MutationNode {
-    fn node_mutate(&self) -> Self {
+    fn node_mutate(&self, _mutation_type: &Type, _mutation_level: &i8) -> Self {
         MutationNode::Multiply
     }
 }
 
 impl MutationLine {
-    fn line_mutate(&self) -> Self {
+    fn line_mutate(&self, _mutation_type: &Type, _mutation_level: &i8) -> Self {
         MutationLine::Multiply(10)
     }
 }
