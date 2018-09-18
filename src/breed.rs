@@ -8,7 +8,7 @@ impl Gene {
     /// This function merges two genes together to find an avarage genes. Lines and Nodes that can't be merged to an avarage are randomly selected.
     pub fn breed(&self, second_gene: &Self) -> Self {
         let mut new_values = self.clone();
-        if !self.validate_two(second_gene) {
+        if !Self::validate_two(self, second_gene) {
             panic!("Genes not compatible. Can't breed.");
         };
         // Merge nodes.

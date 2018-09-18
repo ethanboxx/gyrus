@@ -12,8 +12,8 @@ impl Gene {
         ];
         predicates.par_iter().all(|f| f())
     }
-    pub fn validate_two(&self, second_gene: &Self) -> bool {
-        self.validate() && second_gene.validate() && self.equal_size(second_gene)
+    pub fn validate_two(first_gene: &Self, second_gene: &Self) -> bool {
+        first_gene.validate() && second_gene.validate() && first_gene.equal_size(second_gene)
     }
 
     fn sum_lines_per_row_equal(&self) -> bool {
