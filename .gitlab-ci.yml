@@ -123,6 +123,7 @@ docs:
 cratesio:
   stage: publish
   script:
+    - rm -r -f docs
     - apt-get update
     - rustup default nightly
     - rustup update
