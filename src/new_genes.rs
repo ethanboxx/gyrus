@@ -1,3 +1,4 @@
+use crate::node_types;
 use crate::Gene;
 use crate::MutationLine;
 use crate::MutationNode;
@@ -55,11 +56,6 @@ where
 impl RandVec for MutationNode {
     fn rand_mut() -> Self {
         let mut rng = rand::thread_rng();
-        let node_types = [
-            MutationNode::Multiply,
-            MutationNode::Divide,
-            MutationNode::Add,
-        ];
         *rng.choose(&node_types).unwrap()
     }
 }

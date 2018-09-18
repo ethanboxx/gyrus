@@ -1,3 +1,4 @@
+use crate::node_types;
 use crate::Gene;
 use crate::MutationLine;
 use crate::MutationNode;
@@ -43,11 +44,6 @@ impl MutationNode {
                     rand::thread_rng().gen_range(i8::min_value(), i8::max_value());
                 if mutation_level > &invert_chance {
                     let mut rng = rand::thread_rng();
-                    let node_types = [
-                        MutationNode::Multiply,
-                        MutationNode::Divide,
-                        MutationNode::Add,
-                    ];
                     *rng.choose(&node_types).unwrap()
                 } else {
                     self
