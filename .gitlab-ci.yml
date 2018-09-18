@@ -8,10 +8,6 @@ stages:
   - publish
   - post-run
 
-cache:
-  key: "${CI_JOB_NAME}"
-  paths:
-    - ${CI_PROJECT_DIR}/target/
 
 clean-code:
   stage: check
@@ -106,7 +102,6 @@ benchmarktests:
 
 docs:
   stage: deploy
-  cache: {}
   script:
     - apt-get update
     - rustup default nightly
@@ -127,7 +122,6 @@ docs:
 
 cratesio:
   stage: publish
-  cache: {}
   script:
     - apt-get update
     - rustup default nightly
