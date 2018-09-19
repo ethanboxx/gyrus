@@ -161,9 +161,6 @@ Codecov:
     - bash <(curl -s https://codecov.io/bash) &&
     - echo "Uploaded code coverage"
   when: on_success
-  only:
-    refs:
-      - master
   allow_failure: true
 
 clippy:
