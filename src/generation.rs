@@ -4,8 +4,13 @@ use {
     chrono::{DateTime, Utc},
     crate::Gene,
 };
+
+struct GeneScore {
+    gene: Gene,
+    score: f64,
+}
 pub struct Generation {
-    genes: Vec<Gene>,
+    genes: Vec<GeneScore>,
     date_created: Option<DateTime<Utc>>,
     intended_size: u16,
     generations_before: u64,
@@ -17,7 +22,10 @@ impl Generation {
             genes: {
                 let mut rand_vec = Vec::new();
                 for _x in 0..size {
-                    rand_vec.push(Gene::new_random_gene());
+                    rand_vec.push(GeneScore {
+                        gene: Gene::new_random_gene(),
+                        score: 0.0,
+                    });
                 }
                 rand_vec
             },
