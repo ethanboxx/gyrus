@@ -5,15 +5,10 @@
 #![feature(tool_lints)]
 #![warn(clippy::pedantic)]
 //! Ai Graph is a new tool for creating machine learning that runs blazingly fast when learning has finnished.
-mod breed;
-mod generation;
-mod mutate;
-mod new_genes;
-mod output;
-mod tests;
-mod validate;
 
-pub use self::mutate::Type;
+mod gene;
+mod generation;
+mod tests;
 
 const NODE_TYPES: [MutationNode; 3] = [
     MutationNode::Multiply,
