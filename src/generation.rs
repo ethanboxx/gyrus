@@ -1,4 +1,4 @@
-use {Gene, chrono::prelude::Utc};
+use {crate::Gene, chrono::prelude::Utc};
 struct Generation {
     genes: Vec<Gene>,
 
