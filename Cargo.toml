@@ -12,6 +12,7 @@ Ai Graph is a new tool for creating machine learning that runs blazingly fast wh
 edition = '2018'
 
 [dependencies]
+chrono = "0.4"
 rand = "0.5"
 rayon = "1.0.2"
 
