@@ -1,6 +1,6 @@
-use {crate::Gene, chrono::prelude::Utc};
+use {chrono::prelude::Utc, crate::Gene};
 struct Generation {
     genes: Vec<Gene>,
 
-    date_created: Option<Utc>;
+    date_created: Option<Utc>,
 }
