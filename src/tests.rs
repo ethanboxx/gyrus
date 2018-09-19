@@ -1,7 +1,8 @@
-use crate::mutate;
 #[cfg(test)]
-use crate::Gene;
-use rand::Rng;
+use {
+    crate::{mutate, Gene},
+    rand::Rng,
+};
 
 //TODO make broken gene and check it. Test if it fails
 

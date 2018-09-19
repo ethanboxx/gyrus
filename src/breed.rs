@@ -1,7 +1,7 @@
-use crate::Gene;
-use crate::MutationLine;
-use crate::MutationNode;
-use rand::Rng;
+use {
+    crate::{Gene, MutationLine, MutationNode},
+    rand::Rng,
+};
 
 //TODO check gene types are the same so that only breedable values are passed.
 impl Gene {
