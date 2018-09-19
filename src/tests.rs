@@ -2,6 +2,9 @@ use crate::mutate;
 #[cfg(test)]
 use crate::Gene;
 use rand::Rng;
+
+//TODO make broken gene and check it. Test if it fails
+
 #[test]
 fn random_gene_is_valid() {
     let test_gene = Gene::new_random_gene();
