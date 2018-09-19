@@ -1,8 +1,7 @@
-use crate::Gene;
-use crate::MutationLine;
-use crate::MutationNode;
-use crate::NODE_TYPES;
-use rand::Rng;
+use {
+    crate::{Gene, MutationLine, MutationNode, NODE_TYPES},
+    rand::Rng,
+};
 
 impl Gene {
     pub fn new_gene() -> Self {

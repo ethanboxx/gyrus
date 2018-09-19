@@ -1,8 +1,8 @@
-use crate::Gene;
-use crate::MutationLine;
-use crate::MutationNode;
-use crate::NODE_TYPES;
-use rand::Rng;
+use {
+    crate::{Gene, MutationLine, MutationNode, NODE_TYPES},
+    rand::Rng,
+};
+
 pub enum Type {
     // Changes all kinds of values
     Strong,
