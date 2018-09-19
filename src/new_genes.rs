@@ -1,7 +1,7 @@
-use crate::Gene;
-use crate::MutationLine;
-use crate::MutationNode;
-use rand::Rng;
+use {
+    crate::{Gene, MutationLine, MutationNode, NODE_TYPES},
+    rand::Rng,
+};
 
 impl Gene {
     pub fn new_gene() -> Self {
@@ -55,12 +55,7 @@ where
 impl RandVec for MutationNode {
     fn rand_mut() -> Self {
         let mut rng = rand::thread_rng();
-        let node_types = [
-            MutationNode::Multiply,
-            MutationNode::Divide,
-            MutationNode::Add,
-        ];
-        *rng.choose(&node_types).unwrap()
+        *rng.choose(&NODE_TYPES).unwrap()
     }
 }
 

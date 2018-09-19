@@ -1,29 +1,35 @@
-use crate::Gene;
-use crate::MutationLine;
-use crate::MutationNode;
-use rand::Rng;
+use {
+    crate::{Gene, MutationLine, MutationNode},
+    rand::Rng,
+};
 
 //TODO check gene types are the same so that only breedable values are passed.
 impl Gene {
     /// This function merges two genes together to find an avarage genes. Lines and Nodes that can't be merged to an avarage are randomly selected.
-    pub fn breed(&self, second_gene: &Self) -> Self {
-        let mut new_values = self.clone();
-        if !self.validate_two(second_gene) {
+    pub fn breed(first_gene: &Self, second_gene: &Self) -> Self {
+        let mut new_values = first_gene.clone();
+        if !Self::validate_two(first_gene, second_gene) {
             panic!("Genes not compatible. Can't breed.");
         };
+
         // Merge nodes.
-        for (node_line_index, node_line) in self.node_dna.iter().enumerate() {
+        for (node_line_index, node_line) in first_gene.node_dna.iter().enumerate() {
             for (node_index, node) in node_line.iter().enumerate() {
-                new_values.node_dna[node_line_index][node_index] =
-                    node.node_merge(second_gene.node_dna[node_line_index][node_index]);
+                new_values.node_dna[node_line_index][node_index] = MutationNode::node_merge(
+                    *node,
+                    second_gene.node_dna[node_line_index][node_index],
+                );
             }
         }
         // Merge lines.
-        for (block_index, block) in self.line_dna.iter().enumerate() {
+        for (block_index, block) in first_gene.line_dna.iter().enumerate() {
             for (node_point_index, node_point) in block.iter().enumerate() {
                 for (line_index, line) in node_point.iter().enumerate() {
-                    new_values.line_dna[block_index][node_point_index][line_index] = line
-                        .line_merge(second_gene.line_dna[block_index][node_point_index][line_index])
+                    new_values.line_dna[block_index][node_point_index][line_index] =
+                        MutationLine::line_merge(
+                            *line,
+                            second_gene.line_dna[block_index][node_point_index][line_index],
+                        )
                 }
             }
         }
@@ -32,17 +38,17 @@ impl Gene {
 }
 
 impl MutationNode {
-    fn node_merge(self, second_node: Self) -> Self {
+    fn node_merge(first_node: Self, second_node: Self) -> Self {
         let mut rng = rand::thread_rng();
-        let node_types = [self, second_node];
+        let node_types = [first_node, second_node];
         *rng.choose(&node_types).unwrap()
     }
 }
 
 impl MutationLine {
-    fn line_merge(self, second_line: Self) -> Self {
+    fn line_merge(first_line: Self, second_line: Self) -> Self {
         let rng = rand::thread_rng().gen_range(0, 2);
-        let node_types = [self, second_line];
+        let node_types = [first_line, second_line];
         match node_types[rng] {
             MutationLine::Pass => MutationLine::Pass,
             MutationLine::Reset => MutationLine::Reset,
