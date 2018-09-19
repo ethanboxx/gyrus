@@ -36,7 +36,7 @@ impl Gene {
         self.line_dna
             .par_iter()
             .enumerate()
-            .any(|(block_index, line_block)| {
+            .all(|(block_index, line_block)| {
                 (line_block[0].len() == self.node_dna[block_index].len())
             })
     }
