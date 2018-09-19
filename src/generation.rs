@@ -1,8 +1,10 @@
+mod validate;
+
 use {
     chrono::{DateTime, Utc},
     crate::Gene,
 };
-struct Generation {
+pub struct Generation {
     genes: Vec<Gene>,
     date_created: Option<DateTime<Utc>>,
     intended_size: u16,
