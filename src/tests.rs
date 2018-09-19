@@ -36,3 +36,22 @@ fn merge_is_valid() {
         panic!("Gene is not valid")
     };
 }
+
+// To get output run cargo test tests::random_merge_is_valid -- --nocapture
+#[test]
+fn random_merge_is_valid() {
+    let mut test_gene = Gene::new_random_gene();
+    println!("test_gene{:#?}", test_gene);
+    test_gene = test_gene.mutate(
+        {
+            let mut rng = rand::thread_rng();
+            let line_types = [&mutate::Type::Strong, &mutate::Type::OnlyValues];
+            *rng.choose(&line_types).unwrap()
+        },
+        rand::thread_rng().gen_range(i8::min_value(), i8::max_value()),
+    );
+    println!("test_gene mutated mut{:#?}", test_gene);
+    if !test_gene.validate() {
+        panic!("Gene is not valid")
+    };
+}
