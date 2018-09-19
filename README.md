@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/crates/l/ai-graph.svg)](https://crates.io/crates/ai-graph)
 [![Latest version](https://img.shields.io/crates/v/ai-graph.svg)](https://crates.io/crates/ai-graph)
 [![downloads-badge](https://img.shields.io/crates/d/ai-graph.svg)](https://crates.io/crates/ai-graph)
-[![Coverage](https://img.shields.io/codecov/c/gitlab/efunb/ai-graph.svg)](https://codecov.io/gl/efunb/ai-graph)
+[![Coverage](https://codecov.io/gl/efunb/ai-graph/branch/master/graph/badge.svg)](https://codecov.io/gl/efunb/ai-graph)
 
 ## Downloads
 
