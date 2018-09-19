@@ -2,7 +2,7 @@ mod validate;
 
 use {
     chrono::{DateTime, Utc},
-    crate::Gene,
+    crate::gene::Gene,
 };
 
 struct GeneScore {

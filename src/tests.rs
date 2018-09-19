@@ -1,6 +1,6 @@
 #[cfg(test)]
 use {
-    crate::{gene::mutate, Gene},
+    crate::{gene::mutate, gene::Gene},
     rand::Rng,
 };
 
