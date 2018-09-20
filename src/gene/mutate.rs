@@ -1,5 +1,5 @@
 use {
-    crate::{Gene, MutationLine, MutationNode, NODE_TYPES},
+    super::{Gene, MutationLine, MutationNode, NODE_TYPES},
     rand::Rng,
 };
 

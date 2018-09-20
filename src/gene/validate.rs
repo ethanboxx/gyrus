@@ -1,4 +1,4 @@
-use {crate::Gene, rayon::prelude::*};
+use {super::Gene, rayon::prelude::*};
 
 //TODO Not all checks are finnished.
 impl Gene {

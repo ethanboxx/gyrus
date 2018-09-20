@@ -5,40 +5,7 @@
 #![feature(tool_lints)]
 #![warn(clippy::pedantic)]
 //! Ai Graph is a new tool for creating machine learning that runs blazingly fast when learning has finnished.
-mod breed;
+
+pub mod gene;
 mod generation;
-mod mutate;
-mod new_genes;
-mod output;
 mod tests;
-mod validate;
-
-pub use self::mutate::Type;
-
-const NODE_TYPES: [MutationNode; 3] = [
-    MutationNode::Multiply,
-    MutationNode::Divide,
-    MutationNode::Add,
-];
-
-#[derive(Clone, Copy, Debug)]
-enum MutationLine {
-    Pass,
-    Reset,
-    Multiply(i8),
-    Divide(i8),
-    Add(i8),
-}
-#[derive(Clone, Copy, Debug)]
-enum MutationNode {
-    Multiply,
-    Divide,
-    Add,
-}
-
-#[derive(Clone, Debug)]
-/// Gene stores the "graph". Different graphs will form different output.
-pub struct Gene {
-    line_dna: Vec<Vec<Vec<MutationLine>>>,
-    node_dna: Vec<Vec<MutationNode>>,
-}
