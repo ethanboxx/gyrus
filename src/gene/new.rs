@@ -11,10 +11,7 @@ impl Gene {
         }
     }
     pub fn new_random_gene() -> Self {
-        Self {
-            line_dna: MutationLine::rand_vec3(2, 9, 9),
-            node_dna: MutationNode::rand_vec2(2, 9),
-        }
+        Self::new_random_basic_gene(2, 9)
     }
     pub fn new_random_basic_gene(depth: u8, hight: u8) -> Self {
         Self {
