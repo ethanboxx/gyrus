@@ -7,14 +7,14 @@ use {
 };
 
 #[derive(Debug)]
-struct GeneScore {
+pub struct GeneScore {
     gene: Gene,
     score: f64,
 }
 
 #[derive(Debug)]
 pub struct Generation {
-    genes: Vec<GeneScore>,
+    pub genes: Vec<GeneScore>,
     date_created: Option<DateTime<Utc>>,
     intended_size: u16,
     generations_before: u64,
