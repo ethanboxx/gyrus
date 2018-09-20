@@ -6,16 +6,18 @@ use {
     chrono::{DateTime, Utc},
 };
 
-#[derive(Debug)]
+//TODO update score func so can make private
+#[derive(Clone, Debug)]
 pub struct GeneScore {
-    gene: Gene,
-    score: f64,
+    pub gene: Gene,
+    pub score: f64,
 }
 
-#[derive(Debug)]
+//TODO make more functions to stop so much pub
+#[derive(Clone, Debug)]
 pub struct Generation {
     pub genes: Vec<GeneScore>,
-    date_created: Option<DateTime<Utc>>,
-    intended_size: u16,
-    generations_before: u64,
+    pub date_created: Option<DateTime<Utc>>,
+    pub intended_size: u16,
+    pub generations_before: u64,
 }
