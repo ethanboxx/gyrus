@@ -2,7 +2,7 @@ mod new;
 mod validate;
 
 use {
-    super::Gene,
+    super::gene::Gene,
     chrono::{DateTime, Utc},
 };
 
