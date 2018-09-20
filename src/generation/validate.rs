@@ -1,4 +1,4 @@
-use {crate::generation::Generation, rayon::prelude::*};
+use {super::Generation, rayon::prelude::*};
 
 impl Generation {
     pub fn validate(&self) -> bool {

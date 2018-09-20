@@ -1,6 +1,6 @@
 mod breed;
 pub mod mutate;
-mod new_genes;
+mod new;
 mod output;
 mod validate;
 
