@@ -11,7 +11,7 @@ impl Gene {
         }
     }
     pub fn new_random_gene() -> Self {
-        Gene::new_random_basic_gene(2, 9)
+        Self::new_random_basic_gene(2, 9)
     }
     pub fn new_random_basic_gene(depth: u8, hight: u8) -> Self {
         Self {
