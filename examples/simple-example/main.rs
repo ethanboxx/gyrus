@@ -17,6 +17,22 @@
 // 0  |
 // 1  |
 
+// 1  |  1
+// 1  |
+// 0  |
+
+// 1  |
+// 0  |  1
+// 1  |
+
+// 0  |
+// 1  |
+// 1  |  1
+
+// 1  |
+// 1  |
+// 1  |  1
+
 extern crate ai_graph;
 use ai_graph::generation::GeneScore;
 use ai_graph::generation::Generation;
@@ -24,12 +40,12 @@ use rayon::prelude::*;
 //TODO lets get some scores to se how easy this is
 
 fn main() {
-    let mut generation = Generation::new_rand(3, 2, 3);
+    let mut generation = Generation::new_rand(100, 2, 3);
     println!("Random start generation {:#?}", generation);
     generation = Generation {
         genes: generation
             .genes
-            .iter()
+            .par_iter()
             .map(|current| {
                 GeneScore {
                     score: {
@@ -41,6 +57,18 @@ fn main() {
                             score = score + 1.0;
                         }
                         if largest_of_3(&current.gene.clone().output(&[0, 0, 1])) == 0 {
+                            score = score + 1.0;
+                        }
+                        if largest_of_3(&current.gene.clone().output(&[1, 1, 0])) == 1 {
+                            score = score + 1.0;
+                        }
+                        if largest_of_3(&current.gene.clone().output(&[1, 0, 1])) == 1 {
+                            score = score + 1.0;
+                        }
+                        if largest_of_3(&current.gene.clone().output(&[0, 1, 1])) == 2 {
+                            score = score + 1.0;
+                        }
+                        if largest_of_3(&current.gene.clone().output(&[2, 1, 1])) == 2 {
                             score = score + 1.0;
                         }
                         score
