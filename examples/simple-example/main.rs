@@ -44,9 +44,9 @@ use rayon::prelude::*;
 //TODO lets get some scores to se how easy this is
 
 fn main() {
-    let mut generation = Generation::new_rand(10, 2, 3);
+    let mut generation = Generation::new_rand(40, 2, 3);
     // println!("Random start generation {:#?}", generation);
-    for _ in 0..200 {
+    for _ in 0..100 {
         generation = Generation {
             genes: generation
                 .genes
