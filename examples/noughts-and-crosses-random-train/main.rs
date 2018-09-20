@@ -82,5 +82,5 @@ fn main() {
     score_val_temp.sort_by(|a, b| a.partial_cmp(b).unwrap_or(Equal));
     // println!("{:#?}", score_val_temp);
     println!("Big value{:#?}", score_val_temp[score_val_temp.len() - 1]);
-    dont_disappear::enter_to_continue();
+    dont_disappear::enter_to_continue::default();
 }
