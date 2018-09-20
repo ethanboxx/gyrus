@@ -8,8 +8,9 @@ use {
 impl Generation {
     pub fn update(&mut self) -> () {
         self.kill();
-        let mut number_of_genes_to_add = self.intended_size as usize - self.genes.len();
-        while number_of_genes_to_add > 0 {
+        let mut number_of_genes_to_add =
+            (self.intended_size as usize - self.genes.len()) as u16 + 1;
+        while number_of_genes_to_add > 1 {
             // mut random gene
             self.genes.push(GeneScore {
                 gene: self.genes[rand::thread_rng().gen_range(0, self.genes.len())]
