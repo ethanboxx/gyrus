@@ -1,10 +1,7 @@
-use {
-    super::{Gene, GeneScore, Generation},
-    rand::Rng,
-    rayon::prelude::*,
-};
+use {super::Generation, rand::Rng};
 
 impl Generation {
+    #[allow(clippy::cast_precision_loss)]
     pub fn kill(&mut self) -> () {
         self.sort();
         let mut indexes = Vec::new();
