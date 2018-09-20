@@ -40,7 +40,7 @@ use rayon::prelude::*;
 //TODO lets get some scores to se how easy this is
 
 fn main() {
-    let mut generation = Generation::new_rand(50, 2, 3);
+    let mut generation = Generation::new_rand(80, 2, 3);
     // println!("Random start generation {:#?}", generation);
     generation = Generation {
         genes: generation

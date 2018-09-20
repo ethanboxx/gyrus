@@ -1,6 +1,7 @@
 mod kill;
 mod new;
 mod sort;
+mod update;
 mod validate;
 
 use {
