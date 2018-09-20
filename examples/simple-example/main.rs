@@ -21,6 +21,7 @@ extern crate ai_graph;
 use ai_graph::generation::Generation;
 
 fn main() {
+    //TODO Need to change size of ai
     let generation = Generation::new_rand(20);
     println!("Random start generation {:#?}", generation);
 }
