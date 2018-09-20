@@ -1,3 +1,4 @@
+mod kill;
 mod new;
 mod sort;
 mod validate;
