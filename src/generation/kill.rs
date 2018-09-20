@@ -14,6 +14,10 @@ impl Generation {
                 indexes.push(index);
             }
         }
+        for index in indexes.iter().rev() {
+            self.genes.remove(*index);
+        }
+
         println!("indexes {:#?}", indexes);
         println!("indexes {:#?}", self.genes[0]);
     }
