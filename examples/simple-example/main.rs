@@ -20,6 +20,8 @@
 extern crate ai_graph;
 use ai_graph::generation::Generation;
 
+//TODO lets get some scores to se how easy this is
+
 fn main() {
     let generation = Generation::new_rand(20, 2, 4);
     println!("Random start generation {:#?}", generation);
