@@ -7,5 +7,5 @@
 //! Ai Graph is a new tool for creating machine learning that runs blazingly fast when learning has finnished.
 
 pub mod gene;
-mod generation;
+pub mod generation;
 mod tests;
