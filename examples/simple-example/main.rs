@@ -16,3 +16,11 @@
 // 0  |  1
 // 0  |
 // 1  |
+
+extern crate ai_graph;
+use ai_graph::generation::Generation;
+
+fn main() {
+    let generation = Generation::new_rand(20);
+    println!("Random start generation {:#?}", generation);
+}
