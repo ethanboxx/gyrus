@@ -9,7 +9,6 @@ impl Generation {
         self.sort();
         let mut indexes = Vec::new();
         for (index, _gene) in self.genes.clone().iter().enumerate() {
-            println!("prob {:#?}", index as f64 / self.genes.len() as f64);
             if !rand::thread_rng().gen_bool(index as f64 / self.genes.len() as f64) {
                 indexes.push(index);
             }
@@ -17,8 +16,5 @@ impl Generation {
         for index in indexes.iter().rev() {
             self.genes.remove(*index);
         }
-
-        println!("indexes {:#?}", indexes);
-        println!("indexes {:#?}", self.genes[0]);
     }
 }
