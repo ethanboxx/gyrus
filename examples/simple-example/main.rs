@@ -81,7 +81,7 @@ fn main() {
     };
     println!("Random middle generation {:#?}", generation);
     println!("Random middle len {:#?}", generation.genes.len());
-    generation.kill();
+    generation.update();
     println!("Random end generation {:#?}", generation);
     println!("Random end len {:#?}", generation.genes.len());
 }
