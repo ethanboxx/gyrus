@@ -1,5 +1,6 @@
 use {super::Generation, rayon::prelude::*};
 
+//TODO make sure ordering is correct for score
 impl Generation {
     pub fn validate(&self) -> bool {
         self.intended_size as usize == self.genes.len() && self
