@@ -1,4 +1,5 @@
 mod new;
+mod sort;
 mod validate;
 
 use {
