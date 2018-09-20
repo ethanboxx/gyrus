@@ -40,8 +40,8 @@ use rayon::prelude::*;
 //TODO lets get some scores to se how easy this is
 
 fn main() {
-    let mut generation = Generation::new_rand(100, 2, 3);
-    println!("Random start generation {:#?}", generation);
+    let mut generation = Generation::new_rand(50, 2, 3);
+    // println!("Random start generation {:#?}", generation);
     generation = Generation {
         genes: generation
             .genes
@@ -79,7 +79,9 @@ fn main() {
         generations_before: generation.generations_before + 1,
         ..generation
     };
-    println!("Random start generation {:#?}", generation);
+    // println!("Random middle generation {:#?}", generation);
+    generation.sort();
+    println!("Random end generation {:#?}", generation);
 }
 
 fn largest_of_3(arr: &Vec<f64>) -> i8 {
