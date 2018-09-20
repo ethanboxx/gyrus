@@ -6,10 +6,13 @@ use {
     chrono::{DateTime, Utc},
 };
 
+#[derive(Debug)]
 struct GeneScore {
     gene: Gene,
     score: f64,
 }
+
+#[derive(Debug)]
 pub struct Generation {
     genes: Vec<GeneScore>,
     date_created: Option<DateTime<Utc>>,
