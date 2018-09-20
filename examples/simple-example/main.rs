@@ -82,8 +82,8 @@ fn main() {
     println!("Random middle generation {:#?}", generation);
     println!("Random middle len {:#?}", generation.genes.len());
     generation.kill();
-    // println!("Random end generation {:#?}", generation);
-    // println!("Random end len {:#?}", generation.genes.len());
+    println!("Random end generation {:#?}", generation);
+    println!("Random end len {:#?}", generation.genes.len());
 }
 
 fn largest_of_3(arr: &Vec<f64>) -> i8 {
