@@ -1,5 +1,5 @@
 use {
-    super::{Gene, GeneScore, Generation},
+    super::{Gene, GeneScore, Generation, MadeFrom},
     chrono::Utc,
 };
 
@@ -12,6 +12,7 @@ impl Generation {
                     rand_vec.push(GeneScore {
                         gene: Gene::new_random_basic_gene(depth, hight),
                         score: 0.0,
+                        made_from: MadeFrom::Start,
                     });
                 }
                 rand_vec
@@ -29,6 +30,7 @@ impl Generation {
                     rand_vec.push(GeneScore {
                         gene: Gene::new_gene_shape_test(),
                         score: 0.0,
+                        made_from: MadeFrom::Start,
                     });
                 }
                 rand_vec

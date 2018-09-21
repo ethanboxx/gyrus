@@ -12,9 +12,10 @@ impl Gene {
     pub fn output(self, input: &[i32]) -> Vec<f64> {
         let mut output = Vec::new();
         let mut node_values = node_value_calc(&self.node_dna);
-        if !self.validate() {
-            panic!("Gene is not valid")
-        };
+        //TODO add option to not validate
+        // if !self.validate() {
+        //     panic!("Gene is not valid")
+        // };
         for (node_index, node_tree) in self.line_dna[0].iter().enumerate() {
             for (line_index, line) in node_tree.iter().enumerate() {
                 node_values[0][line_index].stored_data =
