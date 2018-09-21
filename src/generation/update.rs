@@ -1,9 +1,9 @@
 use {
-    super::{Gene, GeneScore, Generation},
+    super::{Gene, GeneScore, Generation, MadeFrom},
     rand::Rng,
 };
 
-//TODO create new genes to fill space after kill
+//TODO Make genetic diversity
 impl Generation {
     pub fn update(&mut self) -> () {
         self.kill();
@@ -25,6 +25,7 @@ impl Generation {
                         rand::thread_rng().gen_range(i8::min_value(), i8::max_value()),
                     ),
                 score: 0.0,
+                made_from: MadeFrom::Mutate,
             });
             number_of_genes_to_add -= 1;
             if number_of_genes_to_add == 0 {
@@ -37,6 +38,7 @@ impl Generation {
                     &self.genes[rand::thread_rng().gen_range(0, self.genes.len())].gene,
                 ),
                 score: 0.0,
+                made_from: MadeFrom::Breed,
             });
             number_of_genes_to_add -= 1;
             if number_of_genes_to_add == 0 {
