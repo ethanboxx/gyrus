@@ -64,9 +64,9 @@ fn random_merge_is_valid() {
 #[test]
 fn random_generation_is_valid() {
     let test_generation = Generation::new_rand(
-        rand::thread_rng().gen_range(u16::min_value(), 100),
-        rand::thread_rng().gen_range(u8::min_value(), 100),
-        rand::thread_rng().gen_range(u8::min_value(), 100),
+        rand::thread_rng().gen_range(1, 100),
+        rand::thread_rng().gen_range(1, 100),
+        rand::thread_rng().gen_range(1, 100),
     );
     if !test_generation.validate() {
         panic!("Gene is not valid")
@@ -77,15 +77,15 @@ fn random_generation_is_valid() {
 #[test]
 fn random_generation_update_is_valid() {
     let mut test_generation = Generation::new_rand(
-        rand::thread_rng().gen_range(u16::min_value(), 100),
-        rand::thread_rng().gen_range(u8::min_value(), 100),
-        rand::thread_rng().gen_range(u8::min_value(), 100),
+        rand::thread_rng().gen_range(1, 100),
+        rand::thread_rng().gen_range(1, 100),
+        rand::thread_rng().gen_range(1, 100),
     );
     if !test_generation.validate() {
-        panic!("Gene is not valid")
+        panic!("Gene is not valid before update")
     };
     test_generation.update();
     if !test_generation.validate() {
-        panic!("Gene is not valid")
+        panic!("Gene is not valid after update")
     };
 }
