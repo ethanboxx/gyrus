@@ -1,15 +1,13 @@
 use {
     super::{Gene, GeneScore, Generation},
     rand::Rng,
-    std::cmp::Ordering::Equal,
 };
 
 //TODO create new genes to fill space after kill
 impl Generation {
     pub fn update(&mut self) -> () {
         self.kill();
-        let mut number_of_genes_to_add =
-            (self.intended_size as u16 - self.genes.len() as u16) as i32;
+        let mut number_of_genes_to_add = u64::from(self.intended_size) - self.genes.len() as u64;
         loop {
             // mut random gene
             self.genes.push(GeneScore {
@@ -22,14 +20,13 @@ impl Generation {
                                 crate::gene::mutate::Type::Strong,
                                 crate::gene::mutate::Type::OnlyValues,
                             ];
-                            let rng = rng.choose(types).unwrap();
-                            rng
+                            rng.choose(types).unwrap()
                         },
                         rand::thread_rng().gen_range(i8::min_value(), i8::max_value()),
                     ),
                 score: 0.0,
             });
-            number_of_genes_to_add = number_of_genes_to_add - 1;
+            number_of_genes_to_add -= 1;
             if number_of_genes_to_add == 0 {
                 break;
             }
@@ -41,7 +38,7 @@ impl Generation {
                 ),
                 score: 0.0,
             });
-            number_of_genes_to_add = number_of_genes_to_add - 1;
+            number_of_genes_to_add -= 1;
             if number_of_genes_to_add == 0 {
                 break;
             }
