@@ -72,3 +72,20 @@ fn random_generation_is_valid() {
         panic!("Gene is not valid")
     };
 }
+
+// To get output run cargo test tests::random_generation_update_is_valid -- --nocapture
+#[test]
+fn random_generation_update_is_valid() {
+    let mut test_generation = Generation::new_rand(
+        rand::thread_rng().gen_range(u16::min_value(), 100),
+        rand::thread_rng().gen_range(u8::min_value(), 100),
+        rand::thread_rng().gen_range(u8::min_value(), 100),
+    );
+    if !test_generation.validate() {
+        panic!("Gene is not valid")
+    };
+    test_generation.update();
+    if !test_generation.validate() {
+        panic!("Gene is not valid")
+    };
+}
