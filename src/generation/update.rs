@@ -1,4 +1,3 @@
-use std::cmp::Ordering::Equal;
 use {
     super::{Gene, GeneScore, Generation},
     rand::Rng,
@@ -8,9 +7,8 @@ use {
 impl Generation {
     pub fn update(&mut self) -> () {
         self.kill();
-        let mut number_of_genes_to_add =
-            (self.intended_size as usize - self.genes.len()) as u16 + 1;
-        while number_of_genes_to_add > 1 {
+        let mut number_of_genes_to_add = u64::from(self.intended_size) - self.genes.len() as u64;
+        loop {
             // mut random gene
             self.genes.push(GeneScore {
                 gene: self.genes[rand::thread_rng().gen_range(0, self.genes.len())]
@@ -22,14 +20,16 @@ impl Generation {
                                 crate::gene::mutate::Type::Strong,
                                 crate::gene::mutate::Type::OnlyValues,
                             ];
-                            let rng = rng.choose(types).unwrap();
-                            rng
+                            rng.choose(types).unwrap()
                         },
                         rand::thread_rng().gen_range(i8::min_value(), i8::max_value()),
                     ),
                 score: 0.0,
             });
-            number_of_genes_to_add = number_of_genes_to_add - 1;
+            number_of_genes_to_add -= 1;
+            if number_of_genes_to_add == 0 {
+                break;
+            }
             // breed 2 gene
             self.genes.push(GeneScore {
                 gene: Gene::breed(
@@ -38,7 +38,10 @@ impl Generation {
                 ),
                 score: 0.0,
             });
-            number_of_genes_to_add = number_of_genes_to_add - 1;
+            number_of_genes_to_add -= 1;
+            if number_of_genes_to_add == 0 {
+                break;
+            }
         }
     }
 }

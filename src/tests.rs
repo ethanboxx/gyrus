@@ -1,6 +1,6 @@
 #[cfg(test)]
 use {
-    crate::{gene::mutate, gene::Gene},
+    crate::{gene::mutate, gene::Gene, generation::Generation},
     rand::Rng,
 };
 
@@ -57,5 +57,35 @@ fn random_merge_is_valid() {
     println!("test_gene mutated mut{:#?}", test_gene);
     if !test_gene.validate() {
         panic!("Gene is not valid")
+    };
+}
+
+// To get output run cargo test tests::random_generation_is_valid -- --nocapture
+#[test]
+fn random_generation_is_valid() {
+    let test_generation = Generation::new_rand(
+        rand::thread_rng().gen_range(1, 100),
+        rand::thread_rng().gen_range(1, 100),
+        rand::thread_rng().gen_range(1, 100),
+    );
+    if !test_generation.validate() {
+        panic!("Gene is not valid")
+    };
+}
+
+// To get output run cargo test tests::random_generation_update_is_valid -- --nocapture
+#[test]
+fn random_generation_update_is_valid() {
+    let mut test_generation = Generation::new_rand(
+        rand::thread_rng().gen_range(1, 100),
+        rand::thread_rng().gen_range(1, 100),
+        rand::thread_rng().gen_range(1, 100),
+    );
+    if !test_generation.validate() {
+        panic!("Gene is not valid before update")
+    };
+    test_generation.update();
+    if !test_generation.validate() {
+        panic!("Gene is not valid after update")
     };
 }
