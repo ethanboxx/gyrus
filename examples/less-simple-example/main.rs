@@ -1,6 +1,8 @@
 //To run example `cargo run --example less-simple-example --release`
 // Let user pick number of gen to process every time.
 
+// Change shape of ai
+
 // Take 4 inputs
 // Each one has 1 or 0 going through.
 
@@ -92,10 +94,10 @@ use rayon::prelude::*;
 //TODO lets get some scores to se how easy this is
 
 fn main() {
-    let mut generation = Generation::new_rand(100, 2, 4);
+    let mut generation = Generation::new_rand_simple_custom(1000);
     // println!("Random start generation {:#?}", generation);
 
-    for _ in 0..1000 {
+    loop {
         generation = Generation {
             genes: generation
                 .genes

@@ -10,6 +10,21 @@ impl Gene {
             node_dna: vec![vec![MutationNode::Add; 9]; 2],
         }
     }
+    // Test new shape of gene
+    pub fn new_gene_shape_test() -> Self {
+        Self {
+            line_dna: vec![
+                vec![vec![MutationLine::Multiply(5); 16]; 4],
+                vec![vec![MutationLine::Multiply(5); 16]; 16],
+                vec![vec![MutationLine::Multiply(5); 4]; 16],
+            ],
+            node_dna: vec![
+                vec![MutationNode::Add; 16],
+                vec![MutationNode::Add; 16],
+                vec![MutationNode::Add; 4],
+            ],
+        }
+    }
     pub fn new_random_gene() -> Self {
         Self::new_random_basic_gene(2, 9)
     }
