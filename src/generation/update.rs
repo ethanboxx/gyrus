@@ -1,7 +1,7 @@
-use std::cmp::Ordering::Equal;
 use {
     super::{Gene, GeneScore, Generation},
     rand::Rng,
+    std::cmp::Ordering::Equal,
 };
 
 //TODO create new genes to fill space after kill
