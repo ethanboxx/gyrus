@@ -33,7 +33,7 @@ unittests:
   script:
     - rustup default nightly
     - rustup update
-    - cargo test
+    - cargo test --release
 
 benchmarktests:
   stage: test
@@ -146,7 +146,7 @@ Codecov:
     - rustup default nightly
     - rustup update
     - cargo build
-    - cargo test
+    - cargo test --release
     - wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz &&
     - tar xzf master.tar.gz &&
     - cd kcov-master &&
