@@ -1,5 +1,4 @@
-use super::{Gene, GeneScore, Generation};
-use std::cmp::Ordering::Equal;
+use {super::Generation, std::cmp::Ordering::Equal};
 impl Generation {
     //TODO panic if all values are zero
     pub fn sort(&mut self) -> () {
