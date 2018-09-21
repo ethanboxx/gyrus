@@ -115,7 +115,6 @@ impl MutationLine {
     }
 }
 
-// catch panics
 fn rand_plus_or_minus(value_one: i8, value_two: i8) -> i8 {
     if rand::thread_rng().gen_bool(0.5) {
         match value_one.checked_add(value_two) {
