@@ -33,14 +33,14 @@ unittests:
   script:
     - rustup default nightly
     - rustup update
-    - cargo test
+    - cargo test --release
 
 benchmarktests:
   stage: test
   script:
     - rustup default nightly
     - rustup update
-    - cargo bench
+    - cargo bench --release
 
 
 # nightly-linux-optimized:
