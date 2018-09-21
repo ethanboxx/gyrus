@@ -1,7 +1,7 @@
 //To run example `cargo run --example less-simple-example --release`
 // Let user pick number of gen to process every time.
 
-// Change shape of ai
+//TODO Print out alot more data
 
 // Take 4 inputs
 // Each one has 1 or 0 going through.
@@ -169,8 +169,9 @@ fn main() {
         generation.update();
         generation.sort();
         println!(
-            "score top {}",
-            generation.genes[generation.genes.len() - 1].score
+            "score top {} {:#?}",
+            generation.genes[generation.genes.len() - 1].score,
+            generation.genes[generation.genes.len() - 1].made_from
         );
         // println!("Random end generation {:#?}", generation);
         // println!("Random end len {:#?}", generation.genes.len());
