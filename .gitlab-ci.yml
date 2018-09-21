@@ -40,7 +40,7 @@ benchmarktests:
   script:
     - rustup default nightly
     - rustup update
-    - cargo bench --release
+    - cargo bench
 
 
 # nightly-linux-optimized:
