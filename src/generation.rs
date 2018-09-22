@@ -22,6 +22,7 @@ pub struct GeneScore {
     pub gene: Gene,
     pub score: f64,
     pub made_from: MadeFrom,
+    pub key: Vec<i8>,
 }
 
 //TODO make more functions to stop so much pub
