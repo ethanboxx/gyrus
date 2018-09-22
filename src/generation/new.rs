@@ -12,7 +12,7 @@ impl Generation {
                     rand_vec.push({
                         let rng = Gene::new_random_basic_gene(depth, hight);
                         GeneScore {
-                            gene: rng,
+                            gene: rng.clone(),
                             score: 0.0,
                             made_from: MadeFrom::Start,
                             key: rng.find_key(),
@@ -34,7 +34,7 @@ impl Generation {
                     rand_vec.push({
                         let rng = Gene::new_gene_shape_test();
                         GeneScore {
-                            gene: rng,
+                            gene: rng.clone(),
                             score: 0.0,
                             made_from: MadeFrom::Start,
                             key: rng.find_key(),

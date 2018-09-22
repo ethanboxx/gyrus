@@ -25,7 +25,7 @@ impl Generation {
                         rand::thread_rng().gen_range(i8::min_value(), i8::max_value()),
                     );
                 GeneScore {
-                    gene: rng,
+                    gene: rng.clone(),
                     score: 0.0,
                     made_from: MadeFrom::Mutate,
                     key: rng.find_key(),
@@ -42,7 +42,7 @@ impl Generation {
                     &self.genes[rand::thread_rng().gen_range(0, self.genes.len())].gene,
                 );
                 GeneScore {
-                    gene: rng,
+                    gene: rng.clone(),
                     score: 0.0,
                     made_from: MadeFrom::Breed,
                     key: rng.find_key(),
