@@ -2,6 +2,7 @@
 // Let user pick number of gen to process every time.
 
 //TODO Print out alot more data
+//TODO fix genetic diversity.
 
 // Take 4 inputs
 // Each one has 1 or 0 going through.
@@ -175,6 +176,12 @@ fn main() {
             generation.generations_before,
             width = 6
         );
+        //Code used to check genetic diversity. It failed.
+        // println!(
+        //     "data {:#?} {:#?}",
+        //     generation.genes[generation.genes.len() - 1],
+        //     generation.genes[generation.genes.len() - 2],
+        // );
         // println!("Random end generation {:#?}", generation);
         // println!("Random end len {:#?}", generation.genes.len());
     }
