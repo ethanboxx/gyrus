@@ -169,9 +169,11 @@ fn main() {
         generation.update();
         generation.sort();
         println!(
-            "score top {} {:#?}",
+            "score {:>width$} {:?} {:>width$}",
             generation.genes[generation.genes.len() - 1].score,
-            generation.genes[generation.genes.len() - 1].made_from
+            generation.genes[generation.genes.len() - 1].made_from,
+            generation.generations_before,
+            width = 6
         );
         // println!("Random end generation {:#?}", generation);
         // println!("Random end len {:#?}", generation.genes.len());
