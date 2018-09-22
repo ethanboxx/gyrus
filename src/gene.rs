@@ -1,4 +1,5 @@
 mod breed;
+mod key;
 pub mod mutate;
 mod new;
 mod output;
