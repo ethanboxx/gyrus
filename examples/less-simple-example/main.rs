@@ -177,6 +177,16 @@ fn main() {
             width = 6
         );
         //Code used to check genetic diversity. It failed.
+        println!(
+            "data {:?}",
+            generation.genes[generation.genes.len() - 1].key,
+        );
+        println!(
+            "data {:?}",
+            generation.genes[generation.genes.len() - 2].key,
+        );
+
+        //Code used to check genetic diversity. It failed.
         // println!(
         //     "data {:#?} {:#?}",
         //     generation.genes[generation.genes.len() - 1],
