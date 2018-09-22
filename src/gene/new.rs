@@ -20,8 +20,8 @@ impl Gene {
             ],
             node_dna: vec![
                 vec![MutationNode::Add; 16],
-                vec![MutationNode::Add; 16],
-                vec![MutationNode::Add; 4],
+                vec![MutationNode::Multiply; 16],
+                vec![MutationNode::Divide; 4],
             ],
         }
     }
