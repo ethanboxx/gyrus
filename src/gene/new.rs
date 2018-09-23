@@ -54,7 +54,7 @@ impl Gene {
                     .collect()
             }).collect();
     }
-}5
+}
 
 trait RandVec
 where
