@@ -1,3 +1,4 @@
+pub mod gene;
 mod kill;
 mod new;
 mod sort;
@@ -5,7 +6,7 @@ mod update;
 mod validate;
 
 use {
-    super::gene::Gene,
+    self::gene::Gene,
     chrono::{DateTime, Utc},
 };
 
