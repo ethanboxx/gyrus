@@ -3,6 +3,7 @@
 
 //TODO Print out alot more data
 //TODO fix genetic diversity.
+//TODO study if have the same  diversity problem as nodes
 
 // Take 4 inputs
 // Each one has 1 or 0 going through.
@@ -95,7 +96,7 @@ use rayon::prelude::*;
 //TODO lets get some scores to se how easy this is
 
 fn main() {
-    let mut generation = Generation::new_rand_simple_custom(1000);
+    let mut generation = Generation::new_rand_simple_custom(100);
     // println!("Random start generation {:#?}", generation);
 
     loop {
