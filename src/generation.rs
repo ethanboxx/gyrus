@@ -1,6 +1,7 @@
 pub mod creature;
 mod kill;
 mod new;
+mod prints;
 mod score;
 mod sort;
 mod update;

@@ -1,6 +1,7 @@
-use super::Creature;
-use super::Generation;
-use rayon::prelude::*;
+use {
+    super::{Creature, Generation},
+    rayon::prelude::*,
+};
 
 impl Generation {
     pub fn score_update<F>(self, f: F) -> Self
