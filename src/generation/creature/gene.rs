@@ -1,10 +1,10 @@
 mod breed;
+
 mod key;
 pub mod mutate;
 mod new;
 mod output;
 mod validate;
-
 const NODE_TYPES: [MutationNode; 3] = [
     MutationNode::Multiply,
     MutationNode::Divide,

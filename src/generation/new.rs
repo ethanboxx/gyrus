@@ -1,5 +1,5 @@
 use {
-    super::{Gene, GeneScore, Generation, MadeFrom},
+    super::{creature::Creature, creature::MadeFrom, Gene, Generation},
     chrono::Utc,
 };
 
@@ -11,7 +11,7 @@ impl Generation {
                 for _x in 0..size {
                     rand_vec.push({
                         let rng = Gene::new_random_basic_gene(depth, hight);
-                        GeneScore {
+                        Creature {
                             gene: rng.clone(),
                             score: 0.0,
                             made_from: MadeFrom::Start,
@@ -33,7 +33,7 @@ impl Generation {
                 for _x in 0..size {
                     rand_vec.push({
                         let rng = Gene::new_gene_shape_test_shuffle();
-                        GeneScore {
+                        Creature {
                             gene: rng.clone(),
                             score: 0.0,
                             made_from: MadeFrom::Start,

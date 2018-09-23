@@ -1,5 +1,5 @@
 use {
-    super::{Gene, GeneScore, Generation, MadeFrom},
+    super::{creature::MadeFrom, Creature, Gene, Generation},
     rand::Rng,
 };
 
@@ -17,14 +17,14 @@ impl Generation {
                         {
                             let mut rng = rand::thread_rng();
                             let types = &[
-                                crate::gene::mutate::Type::Strong,
-                                crate::gene::mutate::Type::OnlyValues,
+                                super::creature::gene::mutate::Type::Strong,
+                                super::creature::gene::mutate::Type::OnlyValues,
                             ];
                             rng.choose(types).unwrap()
                         },
                         rand::thread_rng().gen_range(i8::min_value(), i8::max_value()),
                     );
-                GeneScore {
+                Creature {
                     gene: rng.clone(),
                     score: 0.0,
                     made_from: MadeFrom::Mutate,
@@ -41,7 +41,7 @@ impl Generation {
                     &self.genes[rand::thread_rng().gen_range(0, self.genes.len())].gene,
                     &self.genes[rand::thread_rng().gen_range(0, self.genes.len())].gene,
                 );
-                GeneScore {
+                Creature {
                     gene: rng.clone(),
                     score: 0.0,
                     made_from: MadeFrom::Breed,

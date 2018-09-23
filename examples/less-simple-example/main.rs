@@ -90,7 +90,7 @@
 // 1  |
 
 extern crate ai_graph;
-use ai_graph::generation::GeneScore;
+use ai_graph::generation::creature::Creature;
 use ai_graph::generation::Generation;
 use rayon::prelude::*;
 //TODO lets get some scores to se how easy this is
@@ -105,7 +105,7 @@ fn main() {
                 .genes
                 .par_iter()
                 .map(|current| {
-                    GeneScore {
+                    Creature {
                         score: {
                             let mut score = 0.0;
                             if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 0])) == 0 {
