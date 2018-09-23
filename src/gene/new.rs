@@ -25,6 +25,11 @@ impl Gene {
             ],
         }
     }
+    pub fn new_gene_shape_test_shuffle() -> Self {
+        let mut x = Self::new_gene_shape_test();
+        x.shuffle();
+        x
+    }
     pub fn new_random_gene() -> Self {
         Self::new_random_basic_gene(2, 9)
     }
@@ -33,6 +38,21 @@ impl Gene {
             line_dna: MutationLine::rand_vec3(depth, hight, hight),
             node_dna: MutationNode::rand_vec2(depth, hight),
         }
+    }
+    pub fn shuffle(&mut self) -> () {
+        self.node_dna = self
+            .node_dna
+            .iter_mut()
+            .map(|x| x.iter_mut().map(|_| MutationNode::rand_mut()).collect())
+            .collect();
+        self.line_dna = self
+            .line_dna
+            .iter_mut()
+            .map(|x| {
+                x.iter_mut()
+                    .map(|x| x.iter_mut().map(|_| MutationLine::rand_mut()).collect())
+                    .collect()
+            }).collect();
     }
 }
 
