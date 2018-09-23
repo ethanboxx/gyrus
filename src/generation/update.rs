@@ -17,8 +17,8 @@ impl Generation {
                         {
                             let mut rng = rand::thread_rng();
                             let types = &[
-                                super::gene::mutate::Type::Strong,
-                                super::gene::mutate::Type::OnlyValues,
+                                super::creature::gene::mutate::Type::Strong,
+                                super::creature::gene::mutate::Type::OnlyValues,
                             ];
                             rng.choose(types).unwrap()
                         },
