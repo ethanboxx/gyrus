@@ -32,7 +32,7 @@ impl Generation {
                 let mut rand_vec = Vec::new();
                 for _x in 0..size {
                     rand_vec.push({
-                        let rng = Gene::new_gene_shape_test();
+                        let rng = Gene::new_gene_shape_test_shuffle();
                         GeneScore {
                             gene: rng.clone(),
                             score: 0.0,
