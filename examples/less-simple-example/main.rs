@@ -90,9 +90,8 @@
 // 1  |
 
 extern crate ai_graph;
-use ai_graph::generation::creature::Creature;
 use ai_graph::generation::Generation;
-use rayon::prelude::*;
+
 //TODO lets get some scores to se how easy this is
 
 fn main() {
@@ -100,71 +99,59 @@ fn main() {
     // println!("Random start generation {:#?}", generation);
 
     loop {
-        generation = Generation {
-            genes: generation
-                .genes
-                .par_iter()
-                .map(|current| {
-                    Creature {
-                        score: {
-                            let mut score = 0.0;
-                            if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 0])) == 0 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[1, 0, 0, 0])) == 3 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[0, 1, 0, 0])) == 1 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[0, 0, 1, 0])) == 2 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 1])) == 0 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[1, 1, 0, 0])) == 3 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[0, 1, 1, 0])) == 2 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[0, 0, 1, 1])) == 0 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[1, 0, 1, 0])) == 1 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[0, 1, 0, 1])) == 2 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[1, 0, 0, 1])) == 3 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[1, 1, 1, 0])) == 1 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[0, 1, 1, 1])) == 2 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[1, 1, 0, 1])) == 2 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[1, 0, 1, 1])) == 1 {
-                                score = score + 1.0;
-                            }
-                            if largest_of_3(&current.gene.clone().output(&[1, 1, 1, 1])) == 0 {
-                                score = score + 1.0;
-                            }
+        generation = generation.score_update(|current| {
+            let mut score = 0.0;
+            if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 0])) == 0 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[1, 0, 0, 0])) == 3 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[0, 1, 0, 0])) == 1 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[0, 0, 1, 0])) == 2 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 1])) == 0 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[1, 1, 0, 0])) == 3 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[0, 1, 1, 0])) == 2 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[0, 0, 1, 1])) == 0 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[1, 0, 1, 0])) == 1 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[0, 1, 0, 1])) == 2 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[1, 0, 0, 1])) == 3 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[1, 1, 1, 0])) == 1 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[0, 1, 1, 1])) == 2 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[1, 1, 0, 1])) == 2 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[1, 0, 1, 1])) == 1 {
+                score = score + 1.0;
+            }
+            if largest_of_3(&current.gene.clone().output(&[1, 1, 1, 1])) == 0 {
+                score = score + 1.0;
+            }
+            score
+        });
 
-                            score
-                        }, //TODO Calc score form gene
-                        ..current.clone()
-                    }.clone()
-                }).collect(),
-            generations_before: generation.generations_before + 1,
-            ..generation
-        };
         // println!("Random middle generation {:#?}", generation);
         // println!("Random middle len {:#?}", generation.genes.len());
 
