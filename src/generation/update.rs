@@ -1,5 +1,5 @@
 use {
-    super::{Creature, Gene, Generation, MadeFrom},
+    super::{creature::MadeFrom, Creature, Gene, Generation},
     rand::Rng,
 };
 
