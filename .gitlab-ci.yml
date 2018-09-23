@@ -145,6 +145,7 @@ Codecov:
     - apt-get install libcurl4-openssl-dev libelf-dev libdw-dev cmake gcc binutils-dev libiberty-dev -y
     - rustup default nightly
     - rustup update
+    - cargo clean
     - cargo build
     - cargo test
     - wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz &&
