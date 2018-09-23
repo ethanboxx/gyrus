@@ -152,36 +152,9 @@ fn main() {
             score
         });
 
-        // println!("Random middle generation {:#?}", generation);
-        // println!("Random middle len {:#?}", generation.genes.len());
-
         generation.update();
         generation.sort();
-        println!(
-            "score {:>width$} {:?} {:>width$}",
-            generation.genes[generation.genes.len() - 1].score,
-            generation.genes[generation.genes.len() - 1].made_from,
-            generation.generations_before,
-            width = 6
-        );
-        //Code used to check genetic diversity. It failed.
-        println!(
-            "data {:?}",
-            generation.genes[generation.genes.len() - 1].key,
-        );
-        println!(
-            "data {:?}",
-            generation.genes[generation.genes.len() - 2].key,
-        );
-
-        //Code used to check genetic diversity. It failed.
-        // println!(
-        //     "data {:#?} {:#?}",
-        //     generation.genes[generation.genes.len() - 1],
-        //     generation.genes[generation.genes.len() - 2],
-        // );
-        // println!("Random end generation {:#?}", generation);
-        // println!("Random end len {:#?}", generation.genes.len());
+        generation.print_diverse_debug();
     }
 }
 
