@@ -1,5 +1,5 @@
 use {
-    super::{Gene, GeneScore, Generation, MadeFrom},
+    super::{Gene, Creature, Generation, MadeFrom},
     rand::Rng,
 };
 
@@ -24,7 +24,7 @@ impl Generation {
                         },
                         rand::thread_rng().gen_range(i8::min_value(), i8::max_value()),
                     );
-                GeneScore {
+                Creature {
                     gene: rng.clone(),
                     score: 0.0,
                     made_from: MadeFrom::Mutate,
@@ -41,7 +41,7 @@ impl Generation {
                     &self.genes[rand::thread_rng().gen_range(0, self.genes.len())].gene,
                     &self.genes[rand::thread_rng().gen_range(0, self.genes.len())].gene,
                 );
-                GeneScore {
+                Creature {
                     gene: rng.clone(),
                     score: 0.0,
                     made_from: MadeFrom::Breed,

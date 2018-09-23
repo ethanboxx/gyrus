@@ -1,4 +1,4 @@
-use super::{super::generation::GeneScore, Gene, MutationNode};
+use super::{super::generation::Creature, Gene, MutationNode};
 
 impl Gene {
     /// `find_key` can be used to keep genetic diversity.
@@ -17,4 +17,4 @@ impl Gene {
     }
 }
 
-impl GeneScore {}
+impl Creature {}
