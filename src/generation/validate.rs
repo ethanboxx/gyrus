@@ -4,8 +4,8 @@ use {super::Generation, rayon::prelude::*};
 //TODO return error type
 impl Generation {
     pub fn validate(&self) -> bool {
-        (self.intended_size as usize == self.genes.len()) && self
-            .genes
+        (self.intended_size as usize == self.species[0].creatures.len()) && self.species[0]
+            .creatures
             .par_iter()
             .all(|gene_store| gene_store.gene.validate())
     }

@@ -6,14 +6,20 @@ impl Generation {
         sorted.sort();
         println!(
             "score {:>width$} {:?} {:>width$}",
-            sorted.genes[sorted.genes.len() - 1].score,
-            sorted.genes[sorted.genes.len() - 1].made_from,
+            sorted.species[0].creatures[sorted.species[0].creatures.len() - 1].score,
+            sorted.species[0].creatures[sorted.species[0].creatures.len() - 1].made_from,
             sorted.generations_before,
             width = 6
         );
         //Code used to check genetic diversity. It failed.
-        println!("data {:?}", sorted.genes[sorted.genes.len() - 1].key,);
-        println!("data {:?}", sorted.genes[sorted.genes.len() - 2].key,);
+        println!(
+            "data {:?}",
+            sorted.species[0].creatures[sorted.species[0].creatures.len() - 1].key,
+        );
+        println!(
+            "data {:?}",
+            sorted.species[0].creatures[sorted.species[0].creatures.len() - 2].key,
+        );
     }
 }
 
