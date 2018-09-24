@@ -1,5 +1,5 @@
 use {
-    super::{species::Species, Creature, Generation},
+    super::{Creature, Generation},
     rayon::prelude::*,
 };
 
@@ -12,19 +12,14 @@ impl Generation {
         let mut generation = self;
 
         generation = Self {
-            species: generation
-                .species
+            genes: generation
+                .genes
                 .par_iter()
-                .map(|current_species| Species {
-                    creatures: current_species
-                        .creatures
-                        .par_iter()
-                        .map(|current| {
-                            Creature {
-                                score: f(current),
-                                ..current.clone()
-                            }.clone()
-                        }).collect(),
+                .map(|current| {
+                    Creature {
+                        score: f(current),
+                        ..current.clone()
+                    }.clone()
                 }).collect(),
             generations_before: generation.generations_before + 1,
             ..generation
