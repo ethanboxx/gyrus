@@ -96,8 +96,6 @@ use ai_graph::generation::Generation;
 
 fn main() {
     let mut generation = Generation::new_rand_simple_custom(100);
-    // println!("Random start generation {:#?}", generation);
-
     loop {
         generation = generation.score_update(|current| {
             let mut score = 0.0;
@@ -151,9 +149,7 @@ fn main() {
             }
             score
         });
-
         generation.update();
-        generation.sort();
         generation.print_diverse_debug();
     }
 }
