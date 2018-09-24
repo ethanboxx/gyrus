@@ -6,7 +6,7 @@
 
 extern crate ai_graph;
 extern crate noughts_and_crosses_lib;
-use ai_graph::generation::creature::gene::Gene;
+use ai_graph::generation::species::creature::gene::Gene;
 use noughts_and_crosses_lib::{GameBoard, Players, Winner};
 use std::cmp::Ordering::Equal;
 

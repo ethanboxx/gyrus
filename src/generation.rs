@@ -1,15 +1,15 @@
-pub mod creature;
 mod kill;
 mod new;
 mod prints;
 mod score;
 mod sort;
+pub mod species;
 mod update;
 mod validate;
 
 use {
-    self::creature::gene::Gene,
-    self::creature::Creature,
+    self::species::creature::gene::Gene,
+    self::species::creature::Creature,
     chrono::{DateTime, Utc},
 };
 

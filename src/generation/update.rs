@@ -1,5 +1,5 @@
 use {
-    super::{creature::MadeFrom, Creature, Gene, Generation},
+    super::{species::creature::MadeFrom, Creature, Gene, Generation},
     rand::Rng,
 };
 
@@ -17,8 +17,8 @@ impl Generation {
                         {
                             let mut rng = rand::thread_rng();
                             let types = &[
-                                super::creature::gene::mutate::Type::Strong,
-                                super::creature::gene::mutate::Type::OnlyValues,
+                                super::species::creature::gene::mutate::Type::Strong,
+                                super::species::creature::gene::mutate::Type::OnlyValues,
                             ];
                             rng.choose(types).unwrap()
                         },
