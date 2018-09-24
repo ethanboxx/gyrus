@@ -1,5 +1,5 @@
 pub mod gene;
-use super::Gene;
+use super::super::Gene;
 
 #[derive(Clone, Debug)]
 pub enum MadeFrom {

@@ -1,5 +1,5 @@
 use {
-    super::{creature::Creature, creature::MadeFrom, Gene, Generation},
+    super::{species::creature::Creature, species::creature::MadeFrom, Gene, Generation},
     chrono::Utc,
 };
 

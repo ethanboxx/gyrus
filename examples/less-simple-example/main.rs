@@ -96,69 +96,65 @@ use ai_graph::generation::Generation;
 
 fn main() {
     let mut generation = Generation::new_rand_simple_custom(100);
-    // println!("Random start generation {:#?}", generation);
-
     loop {
         generation = generation.score_update(|current| {
             let mut score = 0.0;
             if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 0])) == 0 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[1, 0, 0, 0])) == 3 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[0, 1, 0, 0])) == 1 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[0, 0, 1, 0])) == 2 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 1])) == 0 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[1, 1, 0, 0])) == 3 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[0, 1, 1, 0])) == 2 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[0, 0, 1, 1])) == 0 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[1, 0, 1, 0])) == 1 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[0, 1, 0, 1])) == 2 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[1, 0, 0, 1])) == 3 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[1, 1, 1, 0])) == 1 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[0, 1, 1, 1])) == 2 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[1, 1, 0, 1])) == 2 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[1, 0, 1, 1])) == 1 {
-                score = score + 1.0;
+                score += 1.0;
             }
             if largest_of_3(&current.gene.clone().output(&[1, 1, 1, 1])) == 0 {
-                score = score + 1.0;
+                score += 1.0;
             }
             score
         });
-
         generation.update();
-        generation.sort();
         generation.print_diverse_debug();
     }
 }
 
-fn largest_of_3(arr: &Vec<f64>) -> i8 {
+fn largest_of_3(arr: &[f64]) -> i8 {
     if arr[0] > arr[1] && arr[0] > arr[2] && arr[0] > arr[3] {
         0
     } else if arr[1] > arr[0] && arr[1] > arr[2] && arr[1] > arr[3] {
@@ -166,7 +162,7 @@ fn largest_of_3(arr: &Vec<f64>) -> i8 {
     } else if arr[2] > arr[0] && arr[2] > arr[1] && arr[2] > arr[3] {
         2
     } else if arr[3] > arr[0] && arr[3] > arr[1] && arr[3] > arr[2] {
-        2
+        3
     } else {
         0
     }

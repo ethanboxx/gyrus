@@ -38,7 +38,7 @@
 // 0  |
 
 extern crate ai_graph;
-use ai_graph::generation::creature::Creature;
+use ai_graph::generation::species::creature::Creature;
 use ai_graph::generation::Generation;
 use rayon::prelude::*;
 //TODO lets get some scores to se how easy this is
