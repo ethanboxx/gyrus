@@ -2,7 +2,7 @@ use super::Generation;
 use super::Species;
 
 impl Generation {
-    pub fn resort_species(&mut self) -> () {
+    pub fn resort_species(&self) -> Self {
         let mut all_creatures = Vec::new();
         let mut new_generation = Generation {
             species: Vec::new(),
@@ -31,5 +31,6 @@ impl Generation {
                 }),
             }
         }
+        new_generation
     }
 }

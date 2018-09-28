@@ -92,3 +92,11 @@ fn random_generation_update_is_valid() {
         panic!("Gene is not valid after update")
     };
 }
+// To get output run cargo test tests::species_sort -- --nocapture
+#[test]
+fn species_sort() {
+    let mut test_generation = Generation::new_rand(4, 4, 5);
+    println!("Before {:#?}", test_generation);
+    test_generation = test_generation.resort_species();
+    println!("After {:#?}", test_generation);
+}
