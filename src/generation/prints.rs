@@ -11,15 +11,6 @@ impl Generation {
             sorted.generations_before,
             width = 6
         );
-        //Code used to check genetic diversity. It failed.
-        println!(
-            "data {:?}",
-            sorted.species[0].creatures[sorted.species[0].creatures.len() - 1].key,
-        );
-        println!(
-            "data {:?}",
-            sorted.species[0].creatures[sorted.species[0].creatures.len() - 2].key,
-        );
     }
 }
 

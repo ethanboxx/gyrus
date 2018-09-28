@@ -25,6 +25,7 @@ impl Generation {
                                 ..current.clone()
                             }.clone()
                         }).collect(),
+                    key: current_species.clone().key,
                 }).collect(),
             generations_before: generation.generations_before + 1,
             ..generation

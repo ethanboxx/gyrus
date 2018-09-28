@@ -1,6 +1,7 @@
 mod kill;
 mod new;
 mod prints;
+pub mod resort_species;
 mod score;
 mod sort;
 pub mod species;

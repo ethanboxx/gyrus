@@ -25,6 +25,7 @@ impl Generation {
                     }
                     rand_vec
                 },
+                key: None,
             }],
             date_created: Some(Utc::now()),
             intended_size: size,
@@ -49,6 +50,7 @@ impl Generation {
                     }
                     rand_vec
                 },
+                key: None,
             }],
             date_created: Some(Utc::now()),
             intended_size: size,
