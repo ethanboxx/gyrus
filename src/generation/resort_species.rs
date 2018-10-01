@@ -1,18 +1,17 @@
+use super::Creature;
 use super::Generation;
 use super::Species;
 
 impl Generation {
     pub fn resort_species(&self) -> Self {
-        let mut all_creatures = Vec::new();
+        let mut all_creatures = self.unwrap();
         let mut new_generation = Generation {
             species: Vec::new(),
             date_created: None,
             intended_size: self.intended_size,
             generations_before: self.generations_before,
         };
-        for species in self.species.iter() {
-            all_creatures.append(&mut species.creatures.clone());
-        }
+
         for creature in all_creatures {
             let index_of_key = new_generation
                 .species
@@ -32,5 +31,12 @@ impl Generation {
             }
         }
         new_generation
+    }
+    pub fn unwrap(&self) -> Vec<Creature> {
+        let mut all_creatures = Vec::new();
+        for species in self.species.iter() {
+            all_creatures.append(&mut species.creatures.clone());
+        }
+        all_creatures
     }
 }
