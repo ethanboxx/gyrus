@@ -5,6 +5,17 @@ use super::Species;
 impl Generation {
     pub fn resort_species(&self) -> Self {
         let all_creatures = self.unwrap();
+
+        self.wrap(all_creatures)
+    }
+    pub fn unwrap(&self) -> Vec<Creature> {
+        let mut all_creatures = Vec::new();
+        for species in &self.species {
+            all_creatures.append(&mut species.creatures.clone());
+        }
+        all_creatures
+    }
+    pub fn wrap(&self, all_creatures: Vec<Creature>) -> Self {
         let mut new_generation = Self {
             species: Vec::new(),
             date_created: None,
@@ -17,8 +28,7 @@ impl Generation {
                 .species
                 .iter()
                 .enumerate()
-                .find(|(_index, value)| value.key == Some(creature.gene.find_key()))
-                .clone();
+                .find(|(_index, value)| value.key == Some(creature.gene.find_key()));
             match index_of_key {
                 Some(value) => new_generation.species[value.0]
                     .clone()
@@ -31,12 +41,5 @@ impl Generation {
             }
         }
         new_generation
-    }
-    pub fn unwrap(&self) -> Vec<Creature> {
-        let mut all_creatures = Vec::new();
-        for species in self.species.iter() {
-            all_creatures.append(&mut species.creatures.clone());
-        }
-        all_creatures
     }
 }
