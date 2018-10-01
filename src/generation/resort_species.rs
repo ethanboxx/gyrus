@@ -4,8 +4,8 @@ use super::Species;
 
 impl Generation {
     pub fn resort_species(&self) -> Self {
-        let mut all_creatures = self.unwrap();
-        let mut new_generation = Generation {
+        let all_creatures = self.unwrap();
+        let mut new_generation = Self {
             species: Vec::new(),
             date_created: None,
             intended_size: self.intended_size,
