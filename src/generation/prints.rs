@@ -11,6 +11,10 @@ impl Generation {
             self.generations_before,
             width = 6
         );
+        println!("Number of species {}", self.species.len());
+        // for species in self.species.iter() {
+        //     println!("Species len {}", species.creatures.len())
+        // }
     }
 }
 
