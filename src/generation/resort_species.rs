@@ -22,9 +22,8 @@ impl Generation {
             intended_size: self.intended_size,
             generations_before: self.generations_before,
         };
-        let mut index_of_key = new_generation.index_of_key(&all_creatures[0]);
         for creature in all_creatures {
-            index_of_key = new_generation.index_of_key(&creature);
+            let index_of_key = new_generation.index_of_key(&creature);
             match index_of_key {
                 Some(value) => {
                     // println!("index of key{:?}", value);

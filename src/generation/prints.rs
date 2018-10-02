@@ -14,7 +14,7 @@ impl Generation {
         );
         println!("Number of species {}", self.resort_species().species.len());
         println!(
-            "Number of species {:#?}",
+            "Len of first species {:#?}",
             self.resort_species().species[0].creatures.len()
         );
         // for species in self.species.iter() {
