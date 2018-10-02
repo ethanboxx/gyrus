@@ -14,9 +14,5 @@ impl Generation {
             all_creatures.remove(*index);
         }
         self.wrap(all_creatures)
-        //This commented out code was used to debug an issue that has been solved ISSUE This code shows that sometimes the best gene is getting killed MUST BE SOLVED #[derive(PartialEq)]
-        // if copy != self.genes[self.genes.len() - 1].gene.clone() {
-        //     panic!("woah");
-        // }
     }
 }

@@ -26,8 +26,6 @@ impl Generation {
             let index_of_key = new_generation.index_of_key(&creature);
             match index_of_key {
                 Some(value) => {
-                    // println!("index of key{:?}", value);
-                    // println!("index value key{:?}", value.0);
                     new_generation.species[value].creatures.push(creature);
                 }
                 None => new_generation.species.push(Species {
