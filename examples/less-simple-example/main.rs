@@ -3,7 +3,7 @@
 
 //TODO Print out alot more data
 //TODO fix genetic diversity.
-//TODO study if lines have the same diversity problem as nodes
+//TODO study if lines have the same diversity problem as nodes // They do
 
 // Take 4 inputs
 // Each one has 1 or 0 going through.
