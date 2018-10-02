@@ -12,7 +12,11 @@ impl Generation {
             sorted.len(),
             width = 6
         );
-        println!("Number of species {}", self.species.len());
+        println!("Number of species {}", self.resort_species().species.len());
+        println!(
+            "Number of species {:#?}",
+            self.resort_species().species[0].creatures.len()
+        );
         // for species in self.species.iter() {
         //     println!("Species len {}", species.creatures.len())
         // }

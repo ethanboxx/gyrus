@@ -22,18 +22,15 @@ impl Generation {
             intended_size: self.intended_size,
             generations_before: self.generations_before,
         };
-
+        let mut index_of_key = new_generation.index_of_key(&all_creatures[0]);
         for creature in all_creatures {
-            let index_of_key = new_generation
-                .species
-                .iter()
-                .enumerate()
-                .find(|(_index, value)| value.key == Some(creature.gene.find_key()));
+            index_of_key = new_generation.index_of_key(&creature);
             match index_of_key {
-                Some(value) => new_generation.species[value.0]
-                    .clone()
-                    .creatures
-                    .push(creature),
+                Some(value) => {
+                    // println!("index of key{:?}", value);
+                    // println!("index value key{:?}", value.0);
+                    new_generation.species[value].creatures.push(creature);
+                }
                 None => new_generation.species.push(Species {
                     creatures: vec![creature.clone()],
                     key: Some(creature.gene.clone().find_key()),
@@ -41,5 +38,19 @@ impl Generation {
             }
         }
         new_generation
+    }
+    pub fn index_of_key(&self, creature: &Creature) -> Option<usize> {
+        {
+            let x = self.clone();
+            let y = x
+                .species
+                .iter()
+                .enumerate()
+                .find(|(_index, value)| value.key == Some(creature.gene.find_key()));
+            match y {
+                Some(x) => Some(x.0),
+                None => None,
+            }
+        }
     }
 }
