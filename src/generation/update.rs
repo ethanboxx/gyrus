@@ -7,8 +7,7 @@ use {
 impl Generation {
     pub fn update(&mut self) -> () {
         *self = self.kill();
-        let mut number_of_genes_to_add =
-            u64::from(self.intended_size) - self.species[0].creatures.len() as u64;
+        let mut number_of_genes_to_add = u64::from(self.intended_size) - self.unwrap().len() as u64;
         loop {
             // mut random gene
             let to_push = {
