@@ -108,13 +108,15 @@ impl MutationNodeStorage {
         match self.stored_data {
             Some(data) => match self.node_type {
                 MutationNode::Add => data + input_value,
-                MutationNode::Divide => if data == 0.0 {
-                    input_value
-                } else if input_value == 0.0 {
-                    data
-                } else {
-                    data / input_value
-                },
+                MutationNode::Divide => {
+                    if data == 0.0 {
+                        input_value
+                    } else if input_value == 0.0 {
+                        data
+                    } else {
+                        data / input_value
+                    }
+                }
                 MutationNode::Multiply => {
                     // println!("data {}, inputvalue {}", data, input_value);
                     if data == 0.0 {
