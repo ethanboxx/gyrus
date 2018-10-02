@@ -97,6 +97,7 @@ use ai_graph::generation::Generation;
 fn main() {
     let mut generation = Generation::new_rand_simple_custom(100);
     loop {
+        generation.print_diverse_debug();
         generation = generation.score_update(|current| {
             let mut score = 0.0;
             if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 0])) == 0 {
@@ -150,7 +151,6 @@ fn main() {
             score
         });
         generation.update();
-        generation.print_diverse_debug();
     }
 }
 

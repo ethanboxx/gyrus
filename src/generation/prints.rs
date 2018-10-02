@@ -2,18 +2,24 @@ use super::Generation;
 
 impl Generation {
     pub fn print_diverse_debug(&self) -> () {
-        let mut sorted = self.clone();
-        sorted.sort();
+        let sorted = self.clone().sort();
+
         println!(
-            "score {:>width$} {:?} {:>width$}",
-            sorted.genes[sorted.genes.len() - 1].score,
-            sorted.genes[sorted.genes.len() - 1].made_from,
-            sorted.generations_before,
+            "score {:>width$} {:?} {:>width$} {:>width$}",
+            sorted[sorted.len() - 1].score,
+            sorted[sorted.len() - 1].made_from,
+            self.generations_before,
+            sorted.len(),
             width = 6
         );
-        //Code used to check genetic diversity. It failed.
-        println!("data {:?}", sorted.genes[sorted.genes.len() - 1].key,);
-        println!("data {:?}", sorted.genes[sorted.genes.len() - 2].key,);
+        // println!("Number of species {}", self.resort_species().species.len());
+        // println!(
+        //     "Len of first species {:#?}",
+        //     self.resort_species().species[0].creatures.len()
+        // );
+        // for species in self.species.iter() {
+        //     println!("Species len {}", species.creatures.len())
+        // }
     }
 }
 
