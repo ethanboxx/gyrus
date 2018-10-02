@@ -29,7 +29,6 @@ impl Generation {
                     gene: rng.clone(),
                     score: 0.0,
                     made_from: MadeFrom::Mutate,
-                    key: rng.find_key(),
                 }
             };
             self.species[0].creatures.push(to_push);
@@ -51,7 +50,6 @@ impl Generation {
                     gene: rng.clone(),
                     score: 0.0,
                     made_from: MadeFrom::Breed,
-                    key: rng.find_key(),
                 }
             };
             self.species[0].creatures.push(to_push);

@@ -19,7 +19,6 @@ impl Generation {
                                 gene: rng.clone(),
                                 score: 0.0,
                                 made_from: MadeFrom::Start,
-                                key: rng.find_key(),
                             }
                         });
                     }
@@ -44,7 +43,6 @@ impl Generation {
                                 gene: rng.clone(),
                                 score: 0.0,
                                 made_from: MadeFrom::Start,
-                                key: rng.find_key(),
                             }
                         });
                     }
