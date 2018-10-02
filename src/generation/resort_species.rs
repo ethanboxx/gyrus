@@ -40,17 +40,14 @@ impl Generation {
         new_generation
     }
     pub fn index_of_key(&self, creature: &Creature) -> Option<usize> {
-        {
-            let x = self.clone();
-            let y = x
-                .species
-                .iter()
-                .enumerate()
-                .find(|(_index, value)| value.key == Some(creature.gene.find_key()));
-            match y {
-                Some(x) => Some(x.0),
-                None => None,
-            }
+        let y = self
+            .species
+            .iter()
+            .enumerate()
+            .find(|(_index, value)| value.key == Some(creature.gene.find_key()));
+        match y {
+            Some(x) => Some(x.0),
+            None => None,
         }
     }
 }
