@@ -6,14 +6,15 @@ use {
 //TODO Make genetic diversity
 impl Generation {
     pub fn update(&mut self) -> () {
-        self.kill();
+        *self = self.kill();
         let mut number_of_genes_to_add =
             u64::from(self.intended_size) - self.species[0].creatures.len() as u64;
         loop {
             // mut random gene
             let to_push = {
                 let rng = &self.species[0].creatures
-                    [rand::thread_rng().gen_range(0, self.species[0].creatures.len())].gene
+                    [rand::thread_rng().gen_range(0, self.species[0].creatures.len())]
+                .gene
                 .mutate(
                     {
                         let mut rng = rand::thread_rng();
@@ -41,9 +42,11 @@ impl Generation {
             let to_push = {
                 let rng = Gene::breed(
                     &self.species[0].creatures
-                        [rand::thread_rng().gen_range(0, self.species[0].creatures.len())].gene,
+                        [rand::thread_rng().gen_range(0, self.species[0].creatures.len())]
+                    .gene,
                     &self.species[0].creatures
-                        [rand::thread_rng().gen_range(0, self.species[0].creatures.len())].gene,
+                        [rand::thread_rng().gen_range(0, self.species[0].creatures.len())]
+                    .gene,
                 );
                 Creature {
                     gene: rng.clone(),
