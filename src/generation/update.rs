@@ -61,5 +61,6 @@ impl Generation {
                 break;
             }
         }
+        *self = self.resort_species();
     }
 }
