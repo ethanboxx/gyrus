@@ -5,10 +5,11 @@ impl Generation {
         let sorted = self.clone().sort();
 
         println!(
-            "score {:>width$} {:?} {:>width$}",
+            "score {:>width$} {:?} {:>width$} {:>width$}",
             sorted[sorted.len() - 1].score,
             sorted[sorted.len() - 1].made_from,
             self.generations_before,
+            sorted.len(),
             width = 6
         );
         println!("Number of species {}", self.species.len());
