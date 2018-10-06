@@ -25,10 +25,9 @@ The output nodes values are used as outputs from the gene.
 
 ## Dependencies
 
-This project uses rand 0.5 for generating the random numbers used in the artificial intelligence.
-
-Rayon was used in this project for parallel code.
-
-## **Warning**
+| Dependency | Version | Used for                                                           |
+| :--------- | :-----: | -----------------------------------------------------------------: |
+| rand       | 0.5     | Generating the random numbers used in the artificial intelligence. |
+| rayon      | 1.0.2   | Parallel code.                                                     |
 
 **If you are viewing this from GitHub then this is a read only copy. Please contribute to the GitLab copy [here](https://gitlab.com/efunb/ai-graph).**
