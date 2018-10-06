@@ -135,3 +135,15 @@ impl MutationNodeStorage {
         }
     }
 }
+
+fn index_of_largest(arr: &[f64]) -> usize {
+    let x = arr.iter().enumerate().find(|(_index, bigger_value)| {
+        arr.iter()
+            .all(|smaller_value| bigger_value >= &smaller_value)
+    });
+    if let Some(y) = x {
+        y.0
+    } else {
+        panic!("Error 6712: should be impossible");
+    }
+}
