@@ -11,7 +11,12 @@
 
 ## How
 
+In Ai graph an gene looks like this.
+
 ![What a gene looks like](readme_imgs/diagram.png)
+
+A gene takes a number of inputs each line takes a value from a node or an imput the mutates it in some way.
+Each node takes all the values from every line that goes into it to find its value.
 
 ## Features
 
