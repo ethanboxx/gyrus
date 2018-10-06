@@ -11,7 +11,7 @@
 
 ## How
 
-![What a gene looks like](readme_imgs/diagram.min.svg)
+![What a gene looks like](readme_imgs/diagram.png)
 
 ## Features
 
