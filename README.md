@@ -9,6 +9,10 @@
 
 ## Why
 
+## How
+
+![What a gene looks like](readme_imgs/diagram.min.svg)
+
 ## Features
 
 Gene
