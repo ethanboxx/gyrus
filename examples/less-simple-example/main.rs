@@ -100,70 +100,56 @@ fn main() {
         generation.print_diverse_debug();
         generation = generation.score_update(|current| {
             let mut score = 0.0;
-            if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 0])) == 0 {
+            if current.gene.clone().largest_output(&[0, 0, 0, 0]) == 0 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[1, 0, 0, 0])) == 3 {
+            if current.gene.clone().largest_output(&[1, 0, 0, 0]) == 3 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[0, 1, 0, 0])) == 1 {
+            if current.gene.clone().largest_output(&[0, 1, 0, 0]) == 1 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[0, 0, 1, 0])) == 2 {
+            if current.gene.clone().largest_output(&[0, 0, 1, 0]) == 2 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[0, 0, 0, 1])) == 0 {
+            if current.gene.clone().largest_output(&[0, 0, 0, 1]) == 0 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[1, 1, 0, 0])) == 3 {
+            if current.gene.clone().largest_output(&[1, 1, 0, 0]) == 3 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[0, 1, 1, 0])) == 2 {
+            if current.gene.clone().largest_output(&[0, 1, 1, 0]) == 2 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[0, 0, 1, 1])) == 0 {
+            if current.gene.clone().largest_output(&[0, 0, 1, 1]) == 0 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[1, 0, 1, 0])) == 1 {
+            if current.gene.clone().largest_output(&[1, 0, 1, 0]) == 1 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[0, 1, 0, 1])) == 2 {
+            if current.gene.clone().largest_output(&[0, 1, 0, 1]) == 2 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[1, 0, 0, 1])) == 3 {
+            if current.gene.clone().largest_output(&[1, 0, 0, 1]) == 3 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[1, 1, 1, 0])) == 1 {
+            if current.gene.clone().largest_output(&[1, 1, 1, 0]) == 1 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[0, 1, 1, 1])) == 2 {
+            if current.gene.clone().largest_output(&[0, 1, 1, 1]) == 2 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[1, 1, 0, 1])) == 2 {
+            if current.gene.clone().largest_output(&[1, 1, 0, 1]) == 2 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[1, 0, 1, 1])) == 1 {
+            if current.gene.clone().largest_output(&[1, 0, 1, 1]) == 1 {
                 score += 1.0;
             }
-            if largest_of_3(&current.gene.clone().output(&[1, 1, 1, 1])) == 0 {
+            if current.gene.clone().largest_output(&[1, 1, 1, 1]) == 0 {
                 score += 1.0;
             }
             score
         });
         generation.update();
-    }
-}
-
-fn largest_of_3(arr: &[f64]) -> i8 {
-    if arr[0] > arr[1] && arr[0] > arr[2] && arr[0] > arr[3] {
-        0
-    } else if arr[1] > arr[0] && arr[1] > arr[2] && arr[1] > arr[3] {
-        1
-    } else if arr[2] > arr[0] && arr[2] > arr[1] && arr[2] > arr[3] {
-        2
-    } else if arr[3] > arr[0] && arr[3] > arr[1] && arr[3] > arr[2] {
-        3
-    } else {
-        0
     }
 }
