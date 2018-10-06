@@ -3,7 +3,7 @@ use super::{species::creature::MadeFrom, Generation};
 impl Generation {
     pub fn print_generation_info(&self) -> () {
         println!(
-            "score {:>width$} {:?} {:>width$} {:>width$}",
+            "score: {:>width$} | How gene made: {:?} | gen before: {:>width$} | genes now: {:>width$}",
             self.top_score(),
             self.top_scorer_is_made_from(),
             self.generations_before(),

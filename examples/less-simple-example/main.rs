@@ -98,6 +98,7 @@ use ai_graph::generation::Generation;
 
 fn main() {
     let mut generation = Generation::new_rand_simple_custom(100);
+    println!("Each creature is given sets of 4 binary inputs. The creature must return the correct number to get score for each input. Will it learn how to get the highest score?");
     loop {
         generation.print_generation_info();
         generation = generation.score_update(|current_creature| {
