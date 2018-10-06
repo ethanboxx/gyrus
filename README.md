@@ -32,4 +32,6 @@ The output nodes values are used as outputs from the gene.
 | rayon      | 1.0.2   | Parallel code.                                                     |
 | chrono     | 0.4     | Store time generation was made.                                    |
 
+## **Warning**
+
 **If you are viewing this from GitHub then this is a read only copy. Please contribute to the GitLab copy [here](https://gitlab.com/efunb/ai-graph).**
