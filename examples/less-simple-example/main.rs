@@ -99,7 +99,7 @@ use ai_graph::generation::Generation;
 fn main() {
     let mut generation = Generation::new_rand_simple_custom(100);
     loop {
-        generation.print_diverse_debug();
+        generation.print_generation_info();
         generation = generation.score_update(|current_creature| {
             let mut score = 0.0;
             if current_creature.gene.largest_output(&[0, 0, 0, 0]) == 0 {
