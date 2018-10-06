@@ -100,54 +100,54 @@ fn main() {
     let mut generation = Generation::new_rand_simple_custom(100);
     loop {
         generation.print_diverse_debug();
-        generation = generation.score_update(|current| {
+        generation = generation.score_update(|current_creature| {
             let mut score = 0.0;
-            if current.gene.largest_output(&[0, 0, 0, 0]) == 0 {
+            if current_creature.gene.largest_output(&[0, 0, 0, 0]) == 0 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[1, 0, 0, 0]) == 3 {
+            if current_creature.gene.largest_output(&[1, 0, 0, 0]) == 3 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[0, 1, 0, 0]) == 1 {
+            if current_creature.gene.largest_output(&[0, 1, 0, 0]) == 1 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[0, 0, 1, 0]) == 2 {
+            if current_creature.gene.largest_output(&[0, 0, 1, 0]) == 2 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[0, 0, 0, 1]) == 0 {
+            if current_creature.gene.largest_output(&[0, 0, 0, 1]) == 0 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[1, 1, 0, 0]) == 3 {
+            if current_creature.gene.largest_output(&[1, 1, 0, 0]) == 3 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[0, 1, 1, 0]) == 2 {
+            if current_creature.gene.largest_output(&[0, 1, 1, 0]) == 2 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[0, 0, 1, 1]) == 0 {
+            if current_creature.gene.largest_output(&[0, 0, 1, 1]) == 0 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[1, 0, 1, 0]) == 1 {
+            if current_creature.gene.largest_output(&[1, 0, 1, 0]) == 1 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[0, 1, 0, 1]) == 2 {
+            if current_creature.gene.largest_output(&[0, 1, 0, 1]) == 2 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[1, 0, 0, 1]) == 3 {
+            if current_creature.gene.largest_output(&[1, 0, 0, 1]) == 3 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[1, 1, 1, 0]) == 1 {
+            if current_creature.gene.largest_output(&[1, 1, 1, 0]) == 1 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[0, 1, 1, 1]) == 2 {
+            if current_creature.gene.largest_output(&[0, 1, 1, 1]) == 2 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[1, 1, 0, 1]) == 2 {
+            if current_creature.gene.largest_output(&[1, 1, 0, 1]) == 2 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[1, 0, 1, 1]) == 1 {
+            if current_creature.gene.largest_output(&[1, 0, 1, 1]) == 1 {
                 score += 1.0;
             }
-            if current.gene.largest_output(&[1, 1, 1, 1]) == 0 {
+            if current_creature.gene.largest_output(&[1, 1, 1, 1]) == 0 {
                 score += 1.0;
             }
             score
