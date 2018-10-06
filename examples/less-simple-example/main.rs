@@ -100,52 +100,52 @@ fn main() {
         generation.print_diverse_debug();
         generation = generation.score_update(|current| {
             let mut score = 0.0;
-            if current.gene.clone().largest_output(&[0, 0, 0, 0]) == 0 {
+            if current.gene.largest_output(&[0, 0, 0, 0]) == 0 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[1, 0, 0, 0]) == 3 {
+            if current.gene.largest_output(&[1, 0, 0, 0]) == 3 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[0, 1, 0, 0]) == 1 {
+            if current.gene.largest_output(&[0, 1, 0, 0]) == 1 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[0, 0, 1, 0]) == 2 {
+            if current.gene.largest_output(&[0, 0, 1, 0]) == 2 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[0, 0, 0, 1]) == 0 {
+            if current.gene.largest_output(&[0, 0, 0, 1]) == 0 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[1, 1, 0, 0]) == 3 {
+            if current.gene.largest_output(&[1, 1, 0, 0]) == 3 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[0, 1, 1, 0]) == 2 {
+            if current.gene.largest_output(&[0, 1, 1, 0]) == 2 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[0, 0, 1, 1]) == 0 {
+            if current.gene.largest_output(&[0, 0, 1, 1]) == 0 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[1, 0, 1, 0]) == 1 {
+            if current.gene.largest_output(&[1, 0, 1, 0]) == 1 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[0, 1, 0, 1]) == 2 {
+            if current.gene.largest_output(&[0, 1, 0, 1]) == 2 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[1, 0, 0, 1]) == 3 {
+            if current.gene.largest_output(&[1, 0, 0, 1]) == 3 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[1, 1, 1, 0]) == 1 {
+            if current.gene.largest_output(&[1, 1, 1, 0]) == 1 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[0, 1, 1, 1]) == 2 {
+            if current.gene.largest_output(&[0, 1, 1, 1]) == 2 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[1, 1, 0, 1]) == 2 {
+            if current.gene.largest_output(&[1, 1, 0, 1]) == 2 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[1, 0, 1, 1]) == 1 {
+            if current.gene.largest_output(&[1, 0, 1, 1]) == 1 {
                 score += 1.0;
             }
-            if current.gene.clone().largest_output(&[1, 1, 1, 1]) == 0 {
+            if current.gene.largest_output(&[1, 1, 1, 1]) == 0 {
                 score += 1.0;
             }
             score
