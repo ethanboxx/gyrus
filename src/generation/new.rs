@@ -9,6 +9,10 @@ use {
     chrono::Utc,
 };
 
+//Maybe use repeat() to make an iter
+
+//Macro looks like a good idea hear for speed then suffle for variation
+
 impl Generation {
     pub fn new_rand(size: u16, depth: u8, hight: u8) -> Self {
         Self {
