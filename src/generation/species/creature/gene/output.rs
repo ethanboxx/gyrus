@@ -8,8 +8,8 @@ struct MutationNodeStorage {
 }
 impl Gene {
     pub fn largest_output(&self, input: &[i32]) -> usize {
-    }
         index_of_largest(&self.output(input))
+    }
     /// This function calculats an output using a set of inputs and a gene.
     /// If this function takes hard coded values it can be heavily optimised.
     pub fn output(&self, input: &[i32]) -> Vec<f64> {
