@@ -7,8 +7,6 @@
 [![Coverage](https://codecov.io/gl/efunb/ai-graph/branch/master/graph/badge.svg)](https://codecov.io/gl/efunb/ai-graph)
 
 
-## Why
-
 ## How
 
 In Ai graph an gene looks like this.
