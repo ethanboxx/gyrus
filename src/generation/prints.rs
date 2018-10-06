@@ -2,7 +2,6 @@ use super::{species::creature::MadeFrom, Generation};
 
 impl Generation {
     pub fn print_generation_info(&self) -> () {
-        let sorted = self.clone().sort();
         println!(
             "score {:>width$} {:?} {:>width$} {:>width$}",
             self.top_score(),
