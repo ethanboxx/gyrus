@@ -1,7 +1,10 @@
 use {
     super::{
-        species::creature::Creature, species::creature::MadeFrom, species::Species, Gene,
-        Generation,
+        species::{
+            creature::{Creature, MadeFrom},
+            Species,
+        },
+        Gene, Generation,
     },
     chrono::Utc,
 };

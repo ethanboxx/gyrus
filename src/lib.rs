@@ -8,3 +8,9 @@
 
 pub mod generation;
 mod tests;
+
+pub const DEBUG: DebugList = DebugList { check: false };
+
+pub struct DebugList {
+    check: bool,
+}
