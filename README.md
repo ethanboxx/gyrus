@@ -27,5 +27,6 @@ The output nodes values are used as outputs from the gene.
 | :--------- | :-----: | -----------------------------------------------------------------: |
 | rand       | 0.5     | Generating the random numbers used in the artificial intelligence. |
 | rayon      | 1.0.2   | Parallel code.                                                     |
+| chrono     | 0.4     | Store time generation was made.                                    |
 
 **If you are viewing this from GitHub then this is a read only copy. Please contribute to the GitLab copy [here](https://gitlab.com/efunb/ai-graph).**
