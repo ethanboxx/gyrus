@@ -6,10 +6,13 @@
 [![downloads-badge](https://img.shields.io/crates/d/ai-graph.svg)](https://crates.io/crates/ai-graph)
 [![Coverage](https://codecov.io/gl/efunb/ai-graph/branch/master/graph/badge.svg)](https://codecov.io/gl/efunb/ai-graph)
 
+## Help
+
+If you run into any issues or need help with using `ai-graph` in your project please email [incoming+efunb/ai-graph@incoming.gitlab.com](mailto:incoming+efunb/ai-graph@incoming.gitlab.com)
 
 ## How
 
-In Ai graph an gene looks like this.
+In `ai-graph` an gene looks like this.
 
 ![What a gene looks like](readme_imgs/diagram.png)
 
