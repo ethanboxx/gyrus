@@ -1,8 +1,8 @@
 #[cfg(test)]
 use {
-    crate::{
-        generation::species::creature::gene::mutate, generation::species::creature::gene::Gene,
-        generation::Generation,
+    crate::generation::{
+        species::creature::gene::{mutate, Gene},
+        Generation,
     },
     rand::Rng,
 };
