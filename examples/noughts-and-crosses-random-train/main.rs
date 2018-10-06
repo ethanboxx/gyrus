@@ -1,7 +1,7 @@
 #![feature(tool_lints)]
 #![warn(clippy::pedantic)]
 #![allow(clippy::single_match_else)]
-
+// Old example. Remove or update
 //To run example `cargo run --example noughts-and-crosses-random-train --release`
 
 extern crate ai_graph;
