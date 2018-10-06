@@ -1,6 +1,4 @@
-use super::Creature;
-use super::Generation;
-use super::Species;
+use super::{Creature, Generation, Species};
 
 impl Generation {
     pub fn resort_species(&self) -> Self {

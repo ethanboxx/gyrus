@@ -23,10 +23,13 @@ impl Generation {
                             Creature {
                                 score: f(current),
                                 ..current.clone()
-                            }.clone()
-                        }).collect(),
+                            }
+                            .clone()
+                        })
+                        .collect(),
                     key: current_species.clone().key,
-                }).collect(),
+                })
+                .collect(),
             generations_before: generation.generations_before + 1,
             ..generation
         };

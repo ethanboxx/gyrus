@@ -1,7 +1,10 @@
 use {
     super::{
-        species::creature::Creature, species::creature::MadeFrom, species::Species, Gene,
-        Generation,
+        species::{
+            creature::{Creature, MadeFrom},
+            Species,
+        },
+        Gene, Generation,
     },
     chrono::Utc,
 };
@@ -30,6 +33,7 @@ impl Generation {
             intended_size: size,
             generations_before: 0,
         }
+        .resort_species()
     }
     pub fn new_rand_simple_custom(size: u16) -> Self {
         Self {
@@ -54,5 +58,6 @@ impl Generation {
             intended_size: size,
             generations_before: 0,
         }
+        .resort_species()
     }
 }

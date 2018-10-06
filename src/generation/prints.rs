@@ -1,33 +1,27 @@
-use super::Generation;
+use super::{species::creature::MadeFrom, Generation};
 
 impl Generation {
-    pub fn print_diverse_debug(&self) -> () {
+    pub fn print_generation_info(&self) -> () {
         let sorted = self.clone().sort();
-
         println!(
             "score {:>width$} {:?} {:>width$} {:>width$}",
-            sorted[sorted.len() - 1].score,
-            sorted[sorted.len() - 1].made_from,
-            self.generations_before,
-            sorted.len(),
+            self.top_score(),
+            self.top_scorer_is_made_from(),
+            self.generations_before(),
+            self.number_of_creatures(),
             width = 6
         );
-        // println!("Number of species {}", self.resort_species().species.len());
-        // println!(
-        //     "Len of first species {:#?}",
-        //     self.resort_species().species[0].creatures.len()
-        // );
-        // for species in self.species.iter() {
-        //     println!("Species len {}", species.creatures.len())
-        // }
+    }
+    fn top_score(&self) -> f64 {
+        self.sort()[self.sort().len() - 1].score
+    }
+    fn top_scorer_is_made_from(&self) -> MadeFrom {
+        self.sort()[self.sort().len() - 1].made_from.clone()
+    }
+    fn generations_before(&self) -> u64 {
+        self.generations_before
+    }
+    fn number_of_creatures(&self) -> usize {
+        self.sort().len()
     }
 }
-
-//Code used to check genetic diversity. It failed.
-// println!(
-//     "data {:#?} {:#?}",
-//     generation.genes[generation.genes.len() - 1],
-//     generation.genes[generation.genes.len() - 2],
-// );
-// println!("Random end generation {:#?}", generation);
-// println!("Random end len {:#?}", generation.genes.len());

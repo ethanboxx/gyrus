@@ -7,9 +7,12 @@ struct MutationNodeStorage {
     stored_data: Option<f64>,
 }
 impl Gene {
+    pub fn largest_output(&self, input: &[i32]) -> usize {
+        index_of_largest(&self.output(input))
+    }
     /// This function calculats an output using a set of inputs and a gene.
     /// If this function takes hard coded values it can be heavily optimised.
-    pub fn output(self, input: &[i32]) -> Vec<f64> {
+    pub fn output(&self, input: &[i32]) -> Vec<f64> {
         let mut output = Vec::new();
         let mut node_values = node_value_calc(&self.node_dna);
         //TODO add option to not validate
@@ -108,15 +111,16 @@ impl MutationNodeStorage {
         match self.stored_data {
             Some(data) => match self.node_type {
                 MutationNode::Add => data + input_value,
-                MutationNode::Divide => if data == 0.0 {
-                    input_value
-                } else if input_value == 0.0 {
-                    data
-                } else {
-                    data / input_value
-                },
+                MutationNode::Divide => {
+                    if data == 0.0 {
+                        input_value
+                    } else if input_value == 0.0 {
+                        data
+                    } else {
+                        data / input_value
+                    }
+                }
                 MutationNode::Multiply => {
-                    // println!("data {}, inputvalue {}", data, input_value);
                     if data == 0.0 {
                         input_value
                     } else if input_value == 0.0 {
@@ -128,5 +132,17 @@ impl MutationNodeStorage {
             },
             None => input_value,
         }
+    }
+}
+
+fn index_of_largest(arr: &[f64]) -> usize {
+    let x = arr.iter().enumerate().find(|(_index, bigger_value)| {
+        arr.iter()
+            .all(|smaller_value| bigger_value >= &smaller_value)
+    });
+    if let Some(y) = x {
+        y.0
+    } else {
+        panic!("Error 6712: should be impossible");
     }
 }

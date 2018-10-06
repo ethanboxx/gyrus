@@ -40,6 +40,7 @@ impl Gene {
                 (line_block[0].len() == self.node_dna[block_index].len())
             })
     }
+
     fn equal_size(_first_gene: &Self, _second_gene: &Self) -> bool {
         true
     }

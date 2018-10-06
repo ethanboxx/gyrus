@@ -52,7 +52,8 @@ impl Gene {
                 x.iter_mut()
                     .map(|x| x.iter_mut().map(|_| MutationLine::rand_mut()).collect())
                     .collect()
-            }).collect();
+            })
+            .collect();
     }
 }
 
