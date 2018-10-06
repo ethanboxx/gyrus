@@ -17,23 +17,7 @@ In Ai graph an gene looks like this.
 
 A gene takes a number of inputs each line takes a value from a node or an imput the mutates it in some way.
 Each node takes all the values from every line that goes into it to find its value.
-The output nodes values are used as outputs from the gene
-
-## Features
-
-Gene
-
-Generation
-
-Species
-
-Validation
-
-Mutation
-
-Breeding
-
-Killing
+The output nodes values are used as outputs from the gene.
 
 ## Downloads
 
