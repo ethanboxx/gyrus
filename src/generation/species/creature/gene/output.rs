@@ -141,10 +141,9 @@ fn index_of_largest(arr: &[f64]) -> usize {
         arr.iter()
             .all(|smaller_value| bigger_value >= &smaller_value)
     });
-    match x {
-        Some(y) => y.0,
-        None => {
-            panic!("Error 6712: should be impossible");
-        }
+    if let Some(y) = x {
+        y.0
+    } else {
+        panic!("Error 6712: should be impossible");
     }
 }
