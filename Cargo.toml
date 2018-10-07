@@ -1,13 +1,13 @@
 [package]
 name = "gyrus"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["Ethan Brierley <ethanboxx@gmail.com>"]
 license = "MIT/Apache-2.0"
 readme = "README.md"
 repository = "https://gitlab.com/efunb/noughts-and-crosses-ai-collection"
 homepage = "http://efunb.com/"
 description = """
-Ai Graph is a new tool for creating machine learning that runs blazingly fast when learning has finished.
+Gyrus is a new tool for creating machine learning that runs blazingly fast when learning has finished.
 """
 edition = '2018'
 
