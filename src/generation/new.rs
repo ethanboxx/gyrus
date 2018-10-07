@@ -19,7 +19,7 @@ impl Generation {
             species: vec![Species {
                 creatures: {
                     let mut rand_vec = Vec::new();
-                    for _x in 0..size {
+                    for _ in 0..size {
                         rand_vec.push({
                             let rng = Gene::new_random_basic_gene(depth, hight);
                             Creature {
@@ -44,7 +44,7 @@ impl Generation {
             species: vec![Species {
                 creatures: {
                     let mut rand_vec = Vec::new();
-                    for _x in 0..size {
+                    for _ in 0..size {
                         rand_vec.push({
                             let rng = Gene::new_gene_shape_test_shuffle();
                             Creature {

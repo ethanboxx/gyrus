@@ -18,10 +18,10 @@ struct GeneStorage {
 
 fn main() {
     let mut scores = Vec::new();
-    for _x in 0..500 {
+    for _ in 0..500 {
         let gene_tested = Gene::new_random_gene();
         let mut score_values = Vec::new();
-        for _x in 0..10000 {
+        for _ in 0..10000 {
             let mut game_board = GameBoard::empty_board();
 
             loop {

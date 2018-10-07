@@ -64,21 +64,21 @@ where
     fn rand_mut() -> Self;
     fn rand_vec3(num: u8, num2: u8, num3: u8) -> Vec<Vec<Vec<Self>>> {
         let mut rand_vec = Vec::new();
-        for _x in 0..num {
+        for _ in 0..num {
             rand_vec.push(Self::rand_vec2(num2, num3));
         }
         rand_vec
     }
     fn rand_vec2(num: u8, num2: u8) -> Vec<Vec<Self>> {
         let mut rand_vec = Vec::new();
-        for _x in 0..num {
+        for _ in 0..num {
             rand_vec.push(Self::rand_vec(num2));
         }
         rand_vec
     }
     fn rand_vec(num: u8) -> Vec<Self> {
         let mut rand_vec = Vec::new();
-        for _x in 0..num {
+        for _ in 0..num {
             rand_vec.push(Self::rand_mut());
         }
         rand_vec
