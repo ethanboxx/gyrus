@@ -91,8 +91,8 @@
 // 1  |
 // 1  |
 
-extern crate ai_graph;
-use ai_graph::generation::Generation;
+extern crate gyrus;
+use gyrus::generation::Generation;
 
 //TODO lets get some scores to se how easy this is
 

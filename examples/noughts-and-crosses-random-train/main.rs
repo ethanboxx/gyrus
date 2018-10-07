@@ -4,9 +4,9 @@
 // Old example. Remove or update
 //To run example `cargo run --example noughts-and-crosses-random-train --release`
 
-extern crate ai_graph;
+extern crate gyrus;
 extern crate noughts_and_crosses_lib;
-use ai_graph::generation::species::creature::gene::Gene;
+use gyrus::generation::species::creature::gene::Gene;
 use noughts_and_crosses_lib::{GameBoard, Players, Winner};
 use std::cmp::Ordering::Equal;
 
