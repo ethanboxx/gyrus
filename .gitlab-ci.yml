@@ -20,7 +20,7 @@ clean-code:
   allow_failure: true
 
 
-check-ai-graph:
+check-gyrus:
   stage: check
   script:
     - rustup default nightly
