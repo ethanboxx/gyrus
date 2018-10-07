@@ -1,12 +1,16 @@
 #![feature(tool_lints)]
 #![warn(clippy::pedantic)]
 #![allow(clippy::single_match_else)]
+
+//*******************************\
 // Old example. Remove or update
+//_______________________________/
+
 //To run example `cargo run --example noughts-and-crosses-random-train --release`
 
-extern crate ai_graph;
+extern crate gyrus;
 extern crate noughts_and_crosses_lib;
-use ai_graph::generation::species::creature::gene::Gene;
+use gyrus::generation::species::creature::gene::Gene;
 use noughts_and_crosses_lib::{GameBoard, Players, Winner};
 use std::cmp::Ordering::Equal;
 
@@ -18,10 +22,10 @@ struct GeneStorage {
 
 fn main() {
     let mut scores = Vec::new();
-    for _x in 0..500 {
+    for _ in 0..500 {
         let gene_tested = Gene::new_random_gene();
         let mut score_values = Vec::new();
-        for _x in 0..10000 {
+        for _ in 0..10000 {
             let mut game_board = GameBoard::empty_board();
 
             loop {

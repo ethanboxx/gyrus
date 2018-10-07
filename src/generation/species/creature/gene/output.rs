@@ -23,7 +23,7 @@ impl Gene {
             for (line_index, line) in node_tree.iter().enumerate() {
                 node_values[0][line_index].stored_data =
                     match node_values[0][line_index].stored_data {
-                        Some(_x) => Some(
+                        Some(_) => Some(
                             node_values[0][line_index]
                                 .calc_pass_value(line.calc_pass_value(input[node_index].into())),
                         ),
@@ -35,6 +35,7 @@ impl Gene {
             }
         }
         for (block_index, block) in self.line_dna.iter().enumerate() {
+            // Maybe use `.skip(1)` other than this if
             if block_index == 0 {
                 continue;
             }
@@ -42,7 +43,7 @@ impl Gene {
                 for (line_index, line) in node_tree.iter().enumerate() {
                     node_values[block_index][line_index].stored_data =
                         match node_values[block_index][line_index].stored_data {
-                            Some(_x) => Some(node_values[block_index][line_index].calc_pass_value(
+                            Some(_) => Some(node_values[block_index][line_index].calc_pass_value(
                                 line.calc_pass_value(
                                     match node_values[block_index - 1][node_index].stored_data {
                                         Some(x) => x,
