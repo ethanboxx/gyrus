@@ -5,8 +5,8 @@
 pub mod generation;
 mod tests;
 
-pub const DEBUG: DebugList = DebugList { check: false };
+pub(crate) const DEBUG: DebugList = DebugList { check: false };
 
-pub struct DebugList {
+pub(crate) struct DebugList {
     check: bool,
 }

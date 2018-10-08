@@ -6,7 +6,7 @@ use {
 //TODO check gene types are the same so that only breedable values are passed.
 impl Gene {
     /// This function merges two genes together to find an avarage genes. Lines and Nodes that can't be merged to an avarage are randomly selected.
-    pub fn breed(first_gene: &Self, second_gene: &Self) -> Self {
+    pub(crate) fn breed(first_gene: &Self, second_gene: &Self) -> Self {
         let mut new_values = first_gene.clone();
         if !Self::validate_two(first_gene, second_gene) && DEBUG.check {
             panic!("Genes not compatible. Can't breed.");
