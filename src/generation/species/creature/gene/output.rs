@@ -19,21 +19,16 @@ impl Gene {
         // if !self.validate() {
         //     panic!("Gene is not valid")
         // };
+        // Process inputs into first set of node values.
         for (node_index, node_tree) in self.line_dna[0].iter().enumerate() {
             for (line_index, line) in node_tree.iter().enumerate() {
-                node_values[0][line_index].stored_data =
-                    match node_values[0][line_index].stored_data {
-                        Some(_) => Some(
-                            node_values[0][line_index]
-                                .calc_pass_value(line.calc_pass_value(input[node_index].into())),
-                        ),
-                        None => Some(
-                            node_values[0][line_index]
-                                .calc_pass_value(line.calc_pass_value(input[node_index].into())),
-                        ),
-                    };
+                node_values[0][line_index].stored_data = Some(
+                    node_values[0][line_index]
+                        .calc_pass_value(line.calc_pass_value(input[node_index].into())),
+                );
             }
         }
+        // Process tree.
         for (block_index, block) in self.line_dna.iter().enumerate() {
             // Maybe use `.skip(1)` other than this if
             if block_index == 0 {
@@ -41,28 +36,18 @@ impl Gene {
             }
             for (node_index, node_tree) in block.iter().enumerate() {
                 for (line_index, line) in node_tree.iter().enumerate() {
-                    node_values[block_index][line_index].stored_data =
-                        match node_values[block_index][line_index].stored_data {
-                            Some(_) => Some(node_values[block_index][line_index].calc_pass_value(
-                                line.calc_pass_value(
-                                    match node_values[block_index - 1][node_index].stored_data {
-                                        Some(x) => x,
-                                        None => panic!("Error 1"),
-                                    },
-                                ),
-                            )),
-                            None => Some(node_values[block_index][line_index].calc_pass_value(
-                                line.calc_pass_value(
-                                    match node_values[block_index - 1][node_index].stored_data {
-                                        Some(x) => x,
-                                        None => panic!("Error 1"),
-                                    },
-                                ),
-                            )),
-                        };
+                    node_values[block_index][line_index].stored_data = Some(
+                        node_values[block_index][line_index].calc_pass_value(line.calc_pass_value(
+                            match node_values[block_index - 1][node_index].stored_data {
+                                Some(x) => x,
+                                None => panic!("Error 1"),
+                            },
+                        )),
+                    );
                 }
             }
         }
+        // Fetch output
         for node_values in node_values[node_values.len() - 1].clone() {
             output.push(match node_values.stored_data {
                 Some(x) => x,
