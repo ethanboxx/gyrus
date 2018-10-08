@@ -39,10 +39,6 @@ impl Gene {
             },
         }
     }
-    // Test new shape of gene
-    pub fn new_gene_shape_test() -> Self {
-        Self::new(4, 4, 16, 3)
-    }
     pub fn shuffle(&mut self) -> () {
         self.node_dna = self
             .node_dna
