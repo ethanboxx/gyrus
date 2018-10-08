@@ -4,6 +4,38 @@ use {
 };
 
 impl Gene {
+    pub fn new(
+        number_of_inputs: usize,
+        number_of_output: usize,
+        height: usize,
+        width: usize,
+    ) -> Self {
+        if width < 2 {
+            panic!("Genes can not be made with a width lower than 2");
+        }
+        Self {
+            line_dna: {
+                let mut v = Vec::new();
+                v.push(vec![
+                    vec![MutationLine::Multiply(5); height];
+                    number_of_output
+                ]);
+                for _ in 0..(width - 2) {
+                    v.push(vec![vec![MutationLine::Multiply(5); height]; height])
+                }
+                v.push(vec![vec![MutationLine::Multiply(5); number_of_inputs]; 16]);
+                v
+            },
+            node_dna: {
+                let mut v = Vec::new();
+                for _ in 0..(width - 1) {
+                    v.push(vec![MutationNode::Add; height]);
+                }
+                v.push(vec![MutationNode::Add; number_of_output]);
+                v
+            },
+        }
+    }
     pub fn new_gene() -> Self {
         Self {
             line_dna: vec![vec![vec![MutationLine::Reset; 9]; 9]; 2],
@@ -12,18 +44,7 @@ impl Gene {
     }
     // Test new shape of gene
     pub fn new_gene_shape_test() -> Self {
-        Self {
-            line_dna: vec![
-                vec![vec![MutationLine::Multiply(5); 16]; 4],
-                vec![vec![MutationLine::Multiply(5); 16]; 16],
-                vec![vec![MutationLine::Multiply(5); 4]; 16],
-            ],
-            node_dna: vec![
-                vec![MutationNode::Add; 16],
-                vec![MutationNode::Multiply; 16],
-                vec![MutationNode::Divide; 4],
-            ],
-        }
+        Self::new(4, 4, 16, 3)
     }
     pub fn new_gene_shape_test_shuffle() -> Self {
         let mut x = Self::new_gene_shape_test();
