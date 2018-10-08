@@ -1,4 +1,7 @@
-use super::{Gene, MutationLine, MutationNode};
+use {
+    super::{Gene, MutationLine, MutationNode},
+    crate::DEBUG,
+};
 
 // Temp way of storing values and type of nodes while outputs are being calculated. Gene.node_dna only stores type MutationNodeStorage stores type and any data it contains.
 #[derive(Debug, Clone, Copy)]
@@ -15,10 +18,9 @@ impl Gene {
     pub fn output(&self, input: &[i32]) -> Vec<f64> {
         let mut output = Vec::new();
         let mut node_values = node_value_calc(&self.node_dna);
-        //TODO add option to not validate
-        // if !self.validate() {
-        //     panic!("Gene is not valid")
-        // };
+        if !self.validate() && DEBUG.check {
+            panic!("Gene is not valid")
+        };
         // Process inputs into first set of node values.
         for (node_index, node_tree) in self.line_dna[0].iter().enumerate() {
             for (line_index, line) in node_tree.iter().enumerate() {
