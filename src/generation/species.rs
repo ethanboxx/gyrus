@@ -4,6 +4,6 @@ use self::creature::Creature;
 
 #[derive(Clone, Debug)]
 pub struct Species {
-    pub creatures: Vec<Creature>,
-    pub key: Option<Vec<i8>>,
+    pub(crate) creatures: Vec<Creature>,
+    pub(crate) key: Option<Vec<i8>>,
 }
