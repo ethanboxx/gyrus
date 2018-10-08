@@ -23,7 +23,10 @@ impl Gene {
                 for _ in 0..(width - 2) {
                     v.push(vec![vec![MutationLine::Multiply(5); height]; height])
                 }
-                v.push(vec![vec![MutationLine::Multiply(5); number_of_inputs]; 16]);
+                v.push(vec![
+                    vec![MutationLine::Multiply(5); number_of_inputs];
+                    height
+                ]);
                 v
             },
             node_dna: {

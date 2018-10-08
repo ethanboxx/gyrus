@@ -30,6 +30,7 @@ impl Gene {
                 );
             }
         }
+
         // Process tree.
         for (block_index, block) in self.line_dna.iter().enumerate() {
             // Maybe use `.skip(1)` other than this if
