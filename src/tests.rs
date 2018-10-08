@@ -11,7 +11,7 @@ use {
 
 #[test]
 fn random_gene_is_valid() {
-    let test_gene = Gene::new_random_gene();
+    let test_gene = Gene::new(4, 4, 8, 3);
     if !test_gene.validate() {
         panic!("Gene is not valid")
     };
@@ -21,9 +21,9 @@ fn random_gene_is_valid() {
 #[test]
 
 fn random_breed_is_valid() {
-    let mut test_gene = Gene::new_random_gene();
+    let mut test_gene = Gene::new(4, 4, 8, 3);
     println!("test_gene{:#?}", test_gene);
-    let test_gene2 = Gene::new_random_gene();
+    let test_gene2 = Gene::new(4, 4, 8, 3);;
     println!("test_gene2{:#?}", test_gene2);
     test_gene = Gene::breed(&test_gene, &test_gene2);
     println!("test_gene2 mut{:#?}", test_gene);
@@ -32,10 +32,10 @@ fn random_breed_is_valid() {
     };
 }
 
-// To get output run cargo test tests::merge_is_valid -- --nocapture
+// To get output run cargo test tests::mutate_is_valid -- --nocapture
 #[test]
-fn merge_is_valid() {
-    let mut test_gene = Gene::new_random_gene();
+fn mutate_is_valid() {
+    let mut test_gene = Gene::new(4, 4, 8, 3);
     println!("test_gene{:#?}", test_gene);
     test_gene = test_gene.mutate(&mutate::Type::Strong, 10);
     println!("test_gene mutated mut{:#?}", test_gene);
@@ -44,10 +44,10 @@ fn merge_is_valid() {
     };
 }
 
-// To get output run cargo test tests::random_merge_is_valid -- --nocapture
+// To get output run cargo test tests::random_mutate_is_valid -- --nocapture
 #[test]
-fn random_merge_is_valid() {
-    let mut test_gene = Gene::new_random_gene();
+fn random_mutate_is_valid() {
+    let mut test_gene = Gene::new(4, 4, 8, 3);
     println!("test_gene{:#?}", test_gene);
     test_gene = test_gene.mutate(
         {
@@ -66,11 +66,7 @@ fn random_merge_is_valid() {
 // To get output run cargo test tests::random_generation_is_valid -- --nocapture
 #[test]
 fn random_generation_is_valid() {
-    let test_generation = Generation::new_rand(
-        rand::thread_rng().gen_range(1, 100),
-        rand::thread_rng().gen_range(1, 100),
-        rand::thread_rng().gen_range(1, 100),
-    );
+    let test_generation = Generation::new(4, 4, 8, 3, true, 100);
     if !test_generation.validate() {
         panic!("Gene is not valid")
     };
@@ -79,11 +75,8 @@ fn random_generation_is_valid() {
 // To get output run cargo test tests::random_generation_update_is_valid -- --nocapture
 #[test]
 fn random_generation_update_is_valid() {
-    let mut test_generation = Generation::new_rand(
-        rand::thread_rng().gen_range(1, 100),
-        rand::thread_rng().gen_range(1, 100),
-        rand::thread_rng().gen_range(1, 100),
-    );
+    let mut test_generation = Generation::new(4, 4, 8, 3, true, 100);
+
     if !test_generation.validate() {
         panic!("Gene is not valid before update")
     };
@@ -95,7 +88,7 @@ fn random_generation_update_is_valid() {
 // To get output run cargo test tests::species_sort -- --nocapture
 #[test]
 fn species_sort() {
-    let mut test_generation = Generation::new_rand(4, 4, 5);
+    let mut test_generation = Generation::new(4, 4, 8, 3, true, 100);
     println!("Before {:#?}", test_generation);
     test_generation = test_generation.resort_species();
     println!("After {:#?}", test_generation);
