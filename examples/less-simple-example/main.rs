@@ -101,6 +101,8 @@ fn main() {
     println!("Each creature is given sets of 4 binary inputs. The creature must return the correct number to get score for each input. Will it learn how to get the highest score?");
     loop {
         generation.print_generation_info();
+
+        //TODO score needs to be caluclated with more decimals so the flow is better
         generation = generation.score_update(|current_creature| {
             let mut score = 0.0;
             if current_creature.gene.largest_output(&[0, 0, 0, 0]) == 0 {
