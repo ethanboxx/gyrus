@@ -104,54 +104,29 @@ fn main() {
 
         //TODO score needs to be caluclated with more decimals so the flow is better
         generation = generation.score_update(|current_creature| {
+            let intended = [
+                ([0, 0, 0, 0], 0),
+                ([1, 0, 0, 0], 3),
+                ([0, 1, 0, 0], 1),
+                ([0, 0, 1, 0], 2),
+                ([0, 0, 0, 1], 0),
+                ([1, 1, 0, 0], 3),
+                ([0, 1, 1, 0], 2),
+                ([0, 0, 1, 1], 0),
+                ([1, 0, 1, 0], 1),
+                ([0, 1, 0, 1], 2),
+                ([1, 0, 0, 1], 3),
+                ([1, 1, 1, 0], 1),
+                ([0, 1, 1, 1], 2),
+                ([1, 1, 0, 1], 2),
+                ([1, 0, 1, 1], 1),
+                ([1, 1, 1, 1], 0),
+            ];
             let mut score = 0.0;
-            if current_creature.gene.largest_output(&[0, 0, 0, 0]) == 0 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[1, 0, 0, 0]) == 3 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[0, 1, 0, 0]) == 1 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[0, 0, 1, 0]) == 2 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[0, 0, 0, 1]) == 0 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[1, 1, 0, 0]) == 3 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[0, 1, 1, 0]) == 2 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[0, 0, 1, 1]) == 0 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[1, 0, 1, 0]) == 1 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[0, 1, 0, 1]) == 2 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[1, 0, 0, 1]) == 3 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[1, 1, 1, 0]) == 1 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[0, 1, 1, 1]) == 2 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[1, 1, 0, 1]) == 2 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[1, 0, 1, 1]) == 1 {
-                score += 1.0;
-            }
-            if current_creature.gene.largest_output(&[1, 1, 1, 1]) == 0 {
-                score += 1.0;
+            for intend in &intended {
+                if current_creature.gene.largest_output(&intend.0) == intend.1 {
+                    score += 1.0;
+                }
             }
             score
         });
