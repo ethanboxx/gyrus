@@ -1,4 +1,7 @@
-use super::{species::creature::MadeFrom, Generation};
+use super::{
+    species::creature::{Creature, MadeFrom},
+    Generation,
+};
 
 impl Generation {
     pub fn print_generation_info(&self) -> () {
@@ -26,5 +29,11 @@ impl Generation {
     }
     fn number_of_creatures(&self) -> usize {
         self.sort().len()
+    }
+    pub fn top_score_from_close<F>(&self, f: F) -> f64
+    where
+        F: Fn(&Creature) -> f64,
+    {
+        f(&self.sort()[self.sort().len() - 1])
     }
 }

@@ -13,6 +13,13 @@ impl Gene {
     pub fn largest_output(&self, input: &[i32]) -> usize {
         index_of_largest(&self.output(input))
     }
+    pub fn score_with_index(&self, input: &[i32], intended_index: usize) -> f64 {
+        if index_of_largest(&self.output(input)) == intended_index {
+            1.0
+        } else {
+            0.0
+        }
+    }
     /// This function calculats an output using a set of inputs and a gene.
     /// If this function takes hard coded values it can be heavily optimised.
     pub fn output(&self, input: &[i32]) -> Vec<f64> {
