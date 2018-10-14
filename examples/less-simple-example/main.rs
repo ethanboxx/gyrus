@@ -1,4 +1,3 @@
-#![feature(tool_lints)]
 #![warn(clippy::pedantic)]
 //To run example `cargo run --example less-simple-example --release`
 // Let user pick number of gen to process every time.
